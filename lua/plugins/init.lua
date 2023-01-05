@@ -11,7 +11,7 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('lazy').setup({ -- TODO: Change lazy's colorscheme
+require('lazy').setup({
 	-- Colorscheme
 	{
 		'catppuccin/nvim',
@@ -89,8 +89,9 @@ require('lazy').setup({ -- TODO: Change lazy's colorscheme
 	'terrortylor/nvim-comment',
 })
 
--- Finalize configurations
+-- Finalize configurations TODO: Put these in the config of each plugin?
 require('plugins/caskey_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
 require('plugins/treesitter_conf')
+require('plugins/cmp_conf')
