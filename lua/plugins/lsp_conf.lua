@@ -1,6 +1,33 @@
 -- Neovim lua config
 require('neodev').setup()
 
+local palette = require('catppuccin.palettes').get_palette('macchiato')
+vim.cmd('autocmd! ColorScheme * highlight NormalFloat guibg=' .. palette.base)
+vim.cmd('autocmd! ColorScheme * highlight FloatBorder guifg=' .. palette.overlay2 .. 'guibg=' .. palette.base)
+local border = {
+	{'╭', 'FloatBorder'},
+	{'─', 'FloatBorder'},
+	{'╮', 'FloatBorder'},
+	{'│', 'FloatBorder'},
+	{'╯', 'FloatBorder'},
+	{'─', 'FloatBorder'},
+	{'╰', 'FloatBorder'},
+	{'│', 'FloatBorder'},
+}
+local handlers = {
+	['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		signs = true,
+		update_in_insert = false,
+	}),
+	['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+		border = border,
+	}),
+	['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		border = border,
+	}),
+}
+
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
 	local nmap = function(keys, func, desc)
@@ -58,19 +85,20 @@ require('mason').setup()
 -- Ensure the servers above are installed
 local mason_lspconfig = require('mason-lspconfig')
 
-mason_lspconfig.setup {
+mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
-}
+})
 
-mason_lspconfig.setup_handlers {
+mason_lspconfig.setup_handlers({
 	function(server_name)
 		require('lspconfig')[server_name].setup {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = servers[server_name],
+			handlers = handlers,
 		}
 	end,
-}
+})
 
 -- LSP status info
 require('fidget').setup()
