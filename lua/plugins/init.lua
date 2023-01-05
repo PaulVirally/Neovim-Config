@@ -55,10 +55,7 @@ require('lazy').setup({ -- TODO: Change lazy's colorscheme
 	},
 
 	-- Copilot
-	{
-		'github/copilot.vim',
-		lazy = true
-	},
+	'github/copilot.vim',
 
 	-- Telescope (fuzzy finder)
 	{
@@ -71,8 +68,14 @@ require('lazy').setup({ -- TODO: Change lazy's colorscheme
 		},
 		lazy = true
 	},
+
+	-- Git
+	'tpope/vim-fugitive',
+	'tpope/vim-rhubarb',
+	{'lewis6991/gitsigns.nvim', lazy = true},
 })
 
 -- Finalize configurations
 require('plugins/caskey_conf')
 require('plugins/lsp_conf')
+require('gitsigns').setup()
