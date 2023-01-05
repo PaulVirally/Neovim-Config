@@ -1,3 +1,5 @@
+-- LSP configuration
+
 -- Bootstrap lazy.vnim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -9,17 +11,68 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('lazy').setup({
+require('lazy').setup({ -- TODO: Change lazy's colorscheme
+	-- Colorscheme
 	{
 		'catppuccin/nvim',
 		name = 'catppuccin'
 	},
+
+	-- Keymaps
 	{
 		'Nexmean/caskey.nvim',
 		name = 'caskey',
 		dependencies = {'folke/which-key.nvim'}
-	}
+	},
+
+	-- LSP
+	{
+		'neovim/nvim-lspconfig',
+		name = 'LSP config',
+		dependencies = {
+			-- Automatically install LSPs with mason
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
+
+			-- Eye candy status update
+			'j-hui/fidget.nvim',
+
+			-- Additional lua configuration, makes nvim stuff amazing
+			'folke/neodev.nvim',
+		},
+		lazy = true
+	},
+
+	-- Autocompletion
+	{
+		'hrsh7th/nvim-cmp',
+		dependencies = {
+			'hrsh7th/cmp-nvim-lsp',
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip'
+		},
+		lazy = true
+	},
+
+	-- Copilot
+	{
+		'github/copilot.vim',
+		lazy = true
+	},
+
+	-- Telescope (fuzzy finder)
+	{
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			{'nvim-telescope/telescope-fzy-native.nvim', build = 'make', cond = vim.fn.executable('make') == 1},
+			{'nvim-telescope/telescope-frecency.nvim', dependencies = {'kkharji/sqlite.lua', 'nvim-tree/nvim-web-devicons'}},
+		},
+		lazy = true
+	},
 })
 
--- Extra configurations
-require('caskey.wk').setup(require('plugins/caskey_conf'))
+-- Finalize configurations
+require('plugins/caskey_conf')
+require('plugins/lsp_conf')
