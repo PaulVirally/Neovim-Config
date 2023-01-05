@@ -73,9 +73,21 @@ require('lazy').setup({ -- TODO: Change lazy's colorscheme
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
 	{'lewis6991/gitsigns.nvim', lazy = true},
+
+	-- More text objects
+	{
+		'nvim-treesitter/nvim-treesitter-textobjects',
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter',
+			build = function()
+				pcall(require('nvim-treesitter.install').update({with_sync = true}))
+			end
+		},
+	}
 })
 
 -- Finalize configurations
 require('plugins/caskey_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
+require('plugins/treesitter_conf')
