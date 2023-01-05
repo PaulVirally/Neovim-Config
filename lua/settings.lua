@@ -10,3 +10,7 @@ vim.opt.relativenumber = true
 
 -- Highlight the line that cursor is on
 vim.opt.cursorline = true
+
+-- Open new split windows to the right and below
+vim.opt.splitbelow = true
+vim.opt.splitright = true
