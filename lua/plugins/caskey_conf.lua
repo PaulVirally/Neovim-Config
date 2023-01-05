@@ -74,6 +74,12 @@ local config = {
 		['<Leader>sw'] = {act = require('telescope.builtin').grep_string, desc = '[S]earch current [W]ord'},
 		['<Leader>sg'] = {act = require('telescope.builtin').live_grep, desc = '[S]earch by [G]rep'},
 		['<Leader>sd'] = {act = require('telescope.builtin').diagnostics, desc = '[S]earch [D]iagnostics'},
+
+		-- Diagnostics
+		['[d'] = {act = vim.diagnostic.goto_prev, desc = 'Go to previous diagnostic'},
+		[']d'] = {act = vim.diagnostic.goto_next, desc = 'Go to next diagnostic'},
+		['<Leader>e'] = {act = vim.diagnostic.open_float, desc = 'Show all diagnostics'},
+		['<Leader>q'] = {act = vim.diagnostic.set_loclist, desc = 'Show all diagnostics in loclist'},
 	},
 
 	-- All visual mode remaps
