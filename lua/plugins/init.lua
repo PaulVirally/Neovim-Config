@@ -83,7 +83,10 @@ require('lazy').setup({ -- TODO: Change lazy's colorscheme
 				pcall(require('nvim-treesitter.install').update({with_sync = true}))
 			end
 		},
-	}
+	},
+
+	-- Comments
+	'terrortylor/nvim-comment',
 })
 
 -- Finalize configurations

@@ -2,18 +2,20 @@
 -- Most of the keymaps are defined in this file, but some are defined in plugins/lsp_conf.lua
 
 local ck = require('caskey')
+
+require('nvim_comment').setup()
 local config = {
 	-- All normal move + visual mode + insert move remaps
 	{
-		mode = {'n', 'v', 'i'},
+		mode = {'n', 'x', 'i'},
 
 		-- Save with command + s
 		['<D-s>'] = {act = ck.cmd('w'), desc = 'Save file'},
 	},
 
-	-- All nrmal mode + visual mode remaps
+	-- All normal mode + visual mode remaps
 	{
-		mode = {'n', 'v'},
+		mode = {'n', 'x'},
 
 		-- Leader key is space, so space has to be a no-op
 		['<Space>'] = {act = '<NOP>', desc = 'Leader'},
@@ -38,6 +40,9 @@ local config = {
 	-- All normal mode remaps
 	{
 		mode = 'n',
+
+		-- Comment
+		['<D-/>'] = {act = ck.cmd('CommentToggle'), desc = 'Toggle comment'},
 
 		-- No highlight when we press escape
 		['<Esc>'] = {act = ck.cmd('noh'), desc = 'Remove highlight', mode = 'n'},
@@ -73,12 +78,20 @@ local config = {
 
 	-- All visual mode remaps
 	{
-		mode = 'v',
+		mode = 'x',
 
 		-- Indent
 		['>'] = {act = '>gv', desc = 'Indent'},
 		['<'] = {act = '<gv', desc = 'Un-indent'},
+
+		-- Move lines
+		['J'] = {act = ':move \'>+1<CR>gv-gv', desc = 'Move line down'},
+		['K'] = {act = ':move \'<-2<CR>gv-gv', desc = 'Move line up'},
+
+		-- Comment
+		['<D-/>'] = {act = ":'<,'>CommentToggle<CR>gv", desc = 'Toggle comment selection'},
 	},
 }
+
 
 require('caskey.wk').setup(config)
