@@ -87,6 +87,9 @@ require('lazy').setup({
 
 	-- Comments
 	'terrortylor/nvim-comment',
+	
+	-- Indent guides
+	'lukas-reineke/indent-blankline.nvim',
 })
 
 -- Finalize configurations TODO: Put these in the config of each plugin?
@@ -96,3 +99,4 @@ require('gitsigns').setup()
 require('plugins/treesitter_conf')
 require('plugins/copilot_conf')
 require('plugins/cmp_conf')
+require('plugins/indent_blankline_conf')
