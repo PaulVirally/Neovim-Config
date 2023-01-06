@@ -111,6 +111,9 @@ require('lazy').setup({
 
 	-- File explorer
 	'nvim-tree/nvim-tree.lua',
+
+	-- Save session (buffers, curr dir, etc.)
+	'folke/persistence.nvim'
 }, {
 	-- Lazy options
 	ui = {
@@ -133,4 +136,5 @@ require('plugins/lualine_conf')
 require('dim').setup({})
 require('bufferline').setup()
 require('plugins/nvim_tree_conf')
+require('persistence').setup()
 require('plugins/caskey_conf')
