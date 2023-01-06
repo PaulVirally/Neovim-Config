@@ -78,8 +78,15 @@ local config = {
 		-- Diagnostics
 		['[d'] = {act = vim.diagnostic.goto_prev, desc = 'Go to previous diagnostic'},
 		[']d'] = {act = vim.diagnostic.goto_next, desc = 'Go to next diagnostic'},
-		['<Leader>e'] = {act = vim.diagnostic.open_float, desc = 'Show all diagnostics'},
-		['<Leader>q'] = {act = vim.diagnostic.set_loclist, desc = 'Show all diagnostics in loclist'},
+		['<Leader>ee'] = {act = ck.cmd('TroubleToggle'), desc = 'Show errors and references'},
+		['<Leader>ew'] = {act = ck.cmd('TroubleToggle'), desc = 'Show workspace errors'},
+		['<Leader>ed'] = {act = ck.cmd('TroubleToggle'), desc = 'Show document errors'},
+		['<Leader>ef'] = {act = ck.cmd('TroubleToggle quickfix'), desc = 'Show error quickfixes'},
+		['<Leader>el'] = {act = ck.cmd('TroubleToggle loclist'), desc = 'Show loclist'},
+		['gr'] = {act = ck.cmd('TroubleToggle lsp_references'), desc = 'Go to reference'},
+
+		-- Git signs
+		['gp'] = {act = ck.cmd('Gitsigns preview_hunk_inline'), desc = 'Preview git diff'},
 	},
 
 	-- All visual mode remaps
