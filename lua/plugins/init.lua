@@ -1,5 +1,3 @@
--- LSP configuration
-
 -- Bootstrap lazy.vnim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -40,6 +38,12 @@ require('lazy').setup({
 			-- Additional lua configuration, makes nvim stuff amazing
 			'folke/neodev.nvim',
 		},
+		lazy = true
+	},
+
+	-- Better error messages
+	{
+		'folke/trouble.nvim',
 		lazy = true
 	},
 
@@ -87,9 +91,19 @@ require('lazy').setup({
 
 	-- Comments
 	'terrortylor/nvim-comment',
-	
+
 	-- Indent guides
 	'lukas-reineke/indent-blankline.nvim',
+
+	-- Cool cmdline
+	{
+		'folke/noice.nvim',
+		dependencies = { -- see if these guys have catppuccin support
+			'MunifTanjim/nui.nvim',
+			'rcarriga/nvim-notify', -- TODO: Look at docs for config
+		},
+		lazy = true
+	}
 }, {
 	-- Lazy options
 	ui = {
@@ -98,10 +112,14 @@ require('lazy').setup({
 })
 
 -- Finalize configurations TODO: Put these in the config of each plugin?
-require('plugins/caskey_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
 require('plugins/treesitter_conf')
 require('plugins/copilot_conf')
 require('plugins/cmp_conf')
 require('plugins/indent_blankline_conf')
+require('trouble').setup()
+require('plugins/fidget_conf')
+require('plugins/catppuccin_conf')
+require('plugins/noice_conf')
+require('plugins/caskey_conf')
