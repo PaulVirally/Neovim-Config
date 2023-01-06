@@ -108,6 +108,11 @@ local config = {
 
 		-- Git signs
 		['gp'] = {act = ck.cmd('Gitsigns preview_hunk_inline'), desc = 'Preview git diff'},
+
+		-- Buffer navigation
+		['<D-[>'] = {act = ck.cmd('BufferPrevious'), desc = 'Go to previous buffer'},
+		['<D-]>'] = {act = ck.cmd('BufferNext'), desc = 'Go to next buffer'},
+		['<D-w>'] = {act = ck.cmd('BufferClose'), desc = 'Close buffer'},
 	},
 
 	-- All visual mode remaps

@@ -104,7 +104,10 @@ require('lazy').setup({
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {'kyazdani42/nvim-web-devicons'},
-	}
+	},
+
+	-- Show buffers as tabs
+	'romgrk/barbar.nvim',
 }, {
 	-- Lazy options
 	ui = {
@@ -124,5 +127,6 @@ require('plugins/indent_blankline_conf')
 require('trouble').setup()
 require('plugins/fidget_conf')
 require('plugins/lualine_conf')
-require('dim').setup()
+require('dim').setup({})
+require('bufferline').setup()
 require('plugins/caskey_conf')
