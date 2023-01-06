@@ -90,6 +90,11 @@ require('lazy').setup({
 	
 	-- Indent guides
 	'lukas-reineke/indent-blankline.nvim',
+}, {
+	-- Lazy options
+	ui = {
+		border = 'rounded',
+	},
 })
 
 -- Finalize configurations TODO: Put these in the config of each plugin?
