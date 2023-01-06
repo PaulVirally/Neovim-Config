@@ -40,4 +40,8 @@ vim.opt.spell = true
 vim.opt.spelllang = 'en_ca'
 
 -- Stop automatically adding comment lines
-vim.opt.formatoptions = 'tljcq'
+local comment_group = vim.api.nvim_create_augroup('NoAutoComment', {clear = true})
+vim.api.nvim_create_autocmd('FileType', {
+	command = 'set formatoptions-=cro',
+	group = comment_group,
+})
