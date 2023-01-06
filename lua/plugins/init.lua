@@ -32,6 +32,9 @@ require('lazy').setup({
 
 			-- Additional lua configuration, makes nvim stuff amazing
 			'folke/neodev.nvim',
+
+			-- Dim unused code
+			'narutoxy/dim.lua',
 		},
 		lazy = true
 	},
@@ -121,4 +124,5 @@ require('plugins/indent_blankline_conf')
 require('trouble').setup()
 require('plugins/fidget_conf')
 require('plugins/lualine_conf')
+require('dim').setup()
 require('plugins/caskey_conf')
