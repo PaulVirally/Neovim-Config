@@ -95,6 +95,12 @@ require('lazy').setup({
 			'rcarriga/nvim-notify', -- TODO: Look at docs for config
 		},
 		lazy = true
+	},
+
+	-- Status line
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = {'kyazdani42/nvim-web-devicons'},
 	}
 }, {
 	-- Lazy options
@@ -104,6 +110,8 @@ require('lazy').setup({
 })
 
 -- Finalize configurations TODO: Put these in the config of each plugin?
+require('plugins/catppuccin_conf')
+require('plugins/noice_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
 require('plugins/treesitter_conf')
@@ -112,6 +120,5 @@ require('plugins/cmp_conf')
 require('plugins/indent_blankline_conf')
 require('trouble').setup()
 require('plugins/fidget_conf')
-require('plugins/catppuccin_conf')
-require('plugins/noice_conf')
+require('plugins/lualine_conf')
 require('plugins/caskey_conf')
