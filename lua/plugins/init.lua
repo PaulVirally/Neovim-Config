@@ -11,22 +11,17 @@ vim.g.maplocalleader = ' '
 
 require('lazy').setup({
 	-- Colorscheme
-	{
-		'catppuccin/nvim',
-		name = 'catppuccin'
-	},
+	'catppuccin/nvim',
 
 	-- Keymaps
 	{
 		'Nexmean/caskey.nvim',
-		name = 'caskey',
 		dependencies = {'folke/which-key.nvim'}
 	},
 
 	-- LSP
 	{
 		'neovim/nvim-lspconfig',
-		name = 'LSP config',
 		dependencies = {
 			-- Automatically install LSPs with mason
 			'williamboman/mason.nvim',
@@ -42,10 +37,7 @@ require('lazy').setup({
 	},
 
 	-- Better error messages
-	{
-		'folke/trouble.nvim',
-		lazy = true
-	},
+	'folke/trouble.nvim',
 
 	-- Autocompletion
 	{
