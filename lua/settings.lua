@@ -18,3 +18,26 @@ vim.opt.splitright = true
 -- Tabs >> spaces
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+
+-- Enable mouse everywhere
+vim.opt.mouse = 'a'
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Have the status line span the entire screen, even when splitting windows
+vim.opt.laststatus = 3
+
+-- Smart case searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Better completion window
+vim.opt.completeopt = {'menuone', 'noselect'}
+
+-- Enable spell checking
+vim.opt.spell = true
+vim.opt.spelllang = 'en_ca'
+
+-- Stop automatically adding comment lines
+vim.opt.formatoptions = 'tljcq'
