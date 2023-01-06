@@ -57,7 +57,7 @@ local config = {
 		-- Move from window to window
 		['<C-h>'] = {act = '<C-w>h', desc = 'Move to the left window'},
 		['<C-j>'] = {act = '<C-w>j', desc = 'Move to the bottom window'},
-		['<C-k>'] = {act = '<C-w>k', desc = 'Move to the top window'},
+		-- ['<C-k>'] = {act = '<C-w>k', desc = 'Move to the top window'},
 		['<C-l>'] = {act = '<C-w>l', desc = 'Move to the right window'},
 
 		-- Telescope
