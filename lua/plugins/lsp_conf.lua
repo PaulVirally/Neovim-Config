@@ -2,8 +2,15 @@
 require('neodev').setup()
 
 local palette = require('catppuccin.palettes').get_palette('macchiato')
-vim.cmd('autocmd! ColorScheme * highlight NormalFloat guibg=' .. palette.base)
-vim.cmd('autocmd! ColorScheme * highlight FloatBorder guifg=' .. palette.overlay2 .. 'guibg=' .. palette.base)
+local border_group = vim.api.nvim_create_augroup('LspBorder', {clear = true})
+vim.api.nvim_create_autocmd('ColorScheme', {
+	command = 'highlight NormalFloat guifg=' .. palette.text .. ' guibg=' .. palette.base,
+	group = border_group
+})
+vim.api.nvim_create_autocmd('ColorScheme', {
+	command = 'highlight FloatBorder guifg=' .. palette.text .. ' guibg=' .. palette.base,
+	group = border_group
+})
 local border = {
 	{'╭', 'FloatBorder'},
 	{'─', 'FloatBorder'},
