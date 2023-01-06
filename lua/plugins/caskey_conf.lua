@@ -5,12 +5,19 @@ local ck = require('caskey')
 
 require('nvim_comment').setup()
 local config = {
+
 	-- All normal move + visual mode + insert move remaps
 	{
 		mode = {'n', 'x', 'i'},
 
 		-- Save with command + s
 		['<D-s>'] = {act = ck.cmd('w'), desc = 'Save file'},
+
+		-- Move around with command + arrow keys
+		['<D-Left>'] = {act = ck.cmd('norm! ^'), desc = 'Go to beginning of line'},
+		['<D-Right>'] = {act = ck.cmd('norm! $'), desc = 'Go to end of line'},
+		['<D-Up>'] = {act = ck.cmd('norm! gg'), desc = 'Go to beginning of file'},
+		['<D-Down>'] = {act = ck.cmd('norm! G'), desc = 'Go to end of file'},
 	},
 
 	-- All normal mode + visual mode remaps
@@ -48,8 +55,22 @@ local config = {
 		['<Esc>'] = {act = ck.cmd('noh'), desc = 'Remove highlight', mode = 'n'},
 
 		-- Correct spelling mistakes
-		['<Leader>ss'] = {act = 'ms[s1z=`s', desc = 'Correct previous spelling mistake'},
-		['<Leader>sS'] = {act = 'ms]s1z=`s', desc = 'Correct next spelling mistake'},
+		['<Leader>ss'] = {act = function()
+			vim.cmd('norm! ms[s')
+			local old_word = vim.fn.expand('<cword>')
+			vim.cmd('norm! 1z=')
+			local new_word = vim.fn.expand('<cword>')
+			vim.cmd('norm! `s')
+			print('Changed "' .. old_word .. '" to "' .. new_word .. '"')
+		end, desc = 'Correct previous spelling mistake'},
+		['<Leader>sS'] = {act = function()
+			vim.cmd('norm! ms]s')
+			local old_word = vim.fn.expand('<cword>')
+			vim.cmd('norm! 1z=')
+			local new_word = vim.fn.expand('<cword>')
+			vim.cmd('norm! `s')
+			print('Changed "' .. old_word .. '" to "' .. new_word .. '"')
+		end, desc = 'Correct next spelling mistake'},
 
 		-- More intuitive line yanking
 		['Y'] = {act = 'yy', desc = 'Copy entire line'},
