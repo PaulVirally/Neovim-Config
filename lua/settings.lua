@@ -45,3 +45,6 @@ vim.api.nvim_create_autocmd('FileType', {
 	command = 'set formatoptions-=cro',
 	group = comment_group,
 })
+
+-- Hide end of buffer characters
+vim.wo.fillchars='eob: '

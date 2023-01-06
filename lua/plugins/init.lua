@@ -108,6 +108,9 @@ require('lazy').setup({
 
 	-- Show buffers as tabs
 	'romgrk/barbar.nvim',
+
+	-- File explorer
+	'nvim-tree/nvim-tree.lua',
 }, {
 	-- Lazy options
 	ui = {
@@ -129,4 +132,5 @@ require('plugins/fidget_conf')
 require('plugins/lualine_conf')
 require('dim').setup({})
 require('bufferline').setup()
+require('plugins/nvim_tree_conf')
 require('plugins/caskey_conf')

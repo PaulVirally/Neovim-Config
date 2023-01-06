@@ -113,6 +113,9 @@ local config = {
 		['<D-[>'] = {act = ck.cmd('BufferPrevious'), desc = 'Go to previous buffer'},
 		['<D-]>'] = {act = ck.cmd('BufferNext'), desc = 'Go to next buffer'},
 		['<D-w>'] = {act = ck.cmd('BufferClose'), desc = 'Close buffer'},
+
+		-- File explorer
+		['<Leader>t'] = {act = ck.cmd('NvimTreeToggle'), desc = 'Toggle file explorer'},
 	},
 
 	-- All visual mode remaps
