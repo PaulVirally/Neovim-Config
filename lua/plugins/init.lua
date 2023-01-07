@@ -114,6 +114,12 @@ require('lazy').setup({
 
 	-- Splash screen
 	'startup-nvim/startup.nvim',
+
+	-- Neorg (doesn't compile...)
+	-- {
+	-- 	'nvim-neorg/neorg',
+	-- 	build = ':Neorg sync-parsers',
+	-- }
 }, {
 	-- Lazy options
 	ui = {
@@ -138,4 +144,5 @@ require('bufferline').setup()
 require('plugins/nvim_tree_conf')
 require('persistence').setup()
 require('plugins/startup_conf')
+require('plugins/neorg_conf')
 require('plugins/caskey_conf')
