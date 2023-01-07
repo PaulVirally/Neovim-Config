@@ -120,6 +120,9 @@ require('lazy').setup({
 	-- 	'nvim-neorg/neorg',
 	-- 	build = ':Neorg sync-parsers',
 	-- }
+
+	-- LaTeX
+	'lervag/vimtex',
 }, {
 	-- Lazy options
 	ui = {
@@ -145,4 +148,5 @@ require('plugins/nvim_tree_conf')
 require('persistence').setup()
 require('plugins/startup_conf')
 require('plugins/neorg_conf')
+require('plugins/vimtex_conf')
 require('plugins/caskey_conf')

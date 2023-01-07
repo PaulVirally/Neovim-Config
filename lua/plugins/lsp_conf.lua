@@ -69,7 +69,8 @@ local servers = {
 	pyright = {}, -- Python
 	rust_analyzer = {}, -- Rust
 	tsserver = {}, -- JavaScript, TypeScript, etc.
-	ltex = {}, -- LaTeX
+	ltex = {}, -- Spelling and grammar in LaTeX
+	texlab = {}, -- LaTeX
 	sumneko_lua = { -- Lua
 		Lua = {
 			workspace = {checkThirdParty = false},
