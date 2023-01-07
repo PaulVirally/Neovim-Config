@@ -16,7 +16,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert {
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-Space>'] = cmp.mapping.complete({}),
 		['<CR>'] = cmp.mapping.confirm({select = false}),
 		['<Tab>'] = cmp.mapping(function(fallback)
 			local copilot_keys = vim.fn['copilot#Accept']()
@@ -31,9 +31,9 @@ cmp.setup({
 			end
 		end, { 'i', 's' }),
 		['<C-a>'] = cmp.mapping(function(fallback)
-			cmp.mapping.abort()
 			local copilot_keys = vim.fn['copilot#Accept']()
 			if copilot_keys ~= '' and type(copilot_keys) == 'string' then
+				cmp.mapping.abort()
 				vim.api.nvim_feedkeys(copilot_keys, 'i', true)
 			else
 				fallback()
