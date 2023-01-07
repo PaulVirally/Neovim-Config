@@ -101,10 +101,7 @@ require('lazy').setup({
 	},
 
 	-- Status line
-	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = {'kyazdani42/nvim-web-devicons'},
-	},
+	'nvim-lualine/lualine.nvim',
 
 	-- Show buffers as tabs
 	'romgrk/barbar.nvim',
