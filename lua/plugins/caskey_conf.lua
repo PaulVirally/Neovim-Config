@@ -116,6 +116,10 @@ local config = {
 
 		-- File explorer
 		['<Leader>t'] = {act = ck.cmd('NvimTreeToggle'), desc = 'Toggle file explorer'},
+
+		-- Restore last session
+		['<Leader>ql'] = {act = function() require('persistence').load({last=true}) end, desc = 'Load last session'},
+		['<Leader>qc'] = {act = require('persistence').load, desc = 'Load session for current directory'},
 	},
 
 	-- All visual mode remaps
