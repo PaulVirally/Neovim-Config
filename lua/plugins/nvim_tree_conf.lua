@@ -2,6 +2,7 @@
 
 require('nvim-tree').setup({
 	view = {
+		adaptive_size = true,
 		side = 'right',
 		mappings = {
 			list = {
@@ -10,9 +11,19 @@ require('nvim-tree').setup({
 			},
 		}
 	},
+	update_focused_file = {
+		enable = true,
+	},
+	modified = {
+		enable = true,
+	},
 	renderer = {
-		git = {
-			unstaged = '',
+		icons = {
+			glyphs = {
+				git = {
+					unstaged = '',
+				},
+			},
 		},
 	},
 })
