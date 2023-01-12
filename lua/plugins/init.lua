@@ -54,7 +54,7 @@ require('lazy').setup({
 	},
 
 	-- Copilot
-	'github/copilot.vim',
+	{'github/copilot.vim', enabled = false},
 
 	-- Telescope (fuzzy finder)
 	{
@@ -83,6 +83,7 @@ require('lazy').setup({
 			end
 		},
 	},
+	{'nvim-treesitter/playground', enabled = false}, -- For debugging treesitter
 
 	-- Comments
 	'terrortylor/nvim-comment',
@@ -115,14 +116,17 @@ require('lazy').setup({
 	-- Splash screen
 	'startup-nvim/startup.nvim',
 
+	-- LaTeX
+	'lervag/vimtex',
+
+	-- Snippets
+	'L3MON4D3/LuaSnip',
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
 	-- 	build = ':Neorg sync-parsers',
-	-- }
-
-	-- LaTeX
-	'lervag/vimtex',
+	-- },
 }, {
 	-- Lazy options
 	ui = {
@@ -136,7 +140,7 @@ require('plugins/noice_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
 require('plugins/treesitter_conf')
-require('plugins/copilot_conf')
+-- require('plugins/copilot_conf')
 require('plugins/cmp_conf')
 require('plugins/indent_blankline_conf')
 require('trouble').setup()
@@ -149,4 +153,5 @@ require('persistence').setup()
 require('plugins/startup_conf')
 require('plugins/neorg_conf')
 require('plugins/vimtex_conf')
+require('plugins/luasnip_conf')
 require('plugins/caskey_conf')
