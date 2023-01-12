@@ -19,26 +19,26 @@ cmp.setup({
 		['<C-Space>'] = cmp.mapping.complete({}),
 		['<CR>'] = cmp.mapping.confirm({select = false}),
 		['<Tab>'] = cmp.mapping(function(fallback)
-			local copilot_keys = vim.fn['copilot#Accept']()
+			-- local copilot_keys = vim.fn['copilot#Accept']()
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
-			elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
-				vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+			-- elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
+			-- 	vim.api.nvim_feedkeys(copilot_keys, 'i', true)
 			else
 				fallback()
 			end
-		end, { 'i', 's' }),
-		['<C-a>'] = cmp.mapping(function(fallback)
-			local copilot_keys = vim.fn['copilot#Accept']()
-			if copilot_keys ~= '' and type(copilot_keys) == 'string' then
-				cmp.mapping.abort()
-				vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
+		end, {'i', 's'}),
+		-- ['<C-a>'] = cmp.mapping(function(fallback)
+		-- 	local copilot_keys = vim.fn['copilot#Accept']()
+		-- 	if copilot_keys ~= '' and type(copilot_keys) == 'string' then
+		-- 		cmp.mapping.abort()
+		-- 		vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, { 'i', 's' }),
 		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
