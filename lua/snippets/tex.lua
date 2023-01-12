@@ -9,14 +9,9 @@ local fmt = require('luasnip.extras.fmt').fmt
 local line_begin = require('luasnip.extras.conditions.expand').line_begin
 local ts_utils = require('nvim-treesitter.ts_utils')
 
-function cool_fun()
-	print('hi')
-end
-
 local function is_node_math(node)
 	local type = node:type()
 	if type == 'text_mode' then
-		print('found text')
 		return false, true
 	end
 	if type == 'math_environment' or type == 'inline_formula' or type == 'displayed_equation' then
@@ -26,13 +21,10 @@ local function is_node_math(node)
 end
 
 local function is_math_env()
-	print('hi')
 	local curr_node = ts_utils.get_node_at_cursor()
-	print(curr_node)
 	while curr_node ~= nil do
 		local is_math, stop = is_node_math(curr_node)
 		if is_math then
-			print('found math')
 			return true
 		end
 		if stop then
@@ -40,7 +32,6 @@ local function is_math_env()
 		end
 		curr_node = curr_node:parent()
 	end
-	print('found not math')
 	return false
 end
 
