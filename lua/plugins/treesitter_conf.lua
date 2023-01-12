@@ -2,8 +2,7 @@
 
 require('nvim-treesitter.configs').setup {
 	-- Add languages to be installed here that you want installed for treesitter
-	ensure_installed = {'c', 'cpp', 'latex', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'regex', 'bash', 'markdown', 'markdown_inline'},
-
+	ensure_installed = {'c', 'cpp', 'latex', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'regex', 'bash', 'markdown', 'markdown_inline', 'query'},
 	highlight = {enable = true},
 	indent = {enable = true, disable = {'python'}},
 	incremental_selection = {
@@ -59,4 +58,22 @@ require('nvim-treesitter.configs').setup {
 			},
 		},
 	},
+	playground = {
+		enable = true,
+		disable = {},
+		updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+		persist_queries = false, -- Whether the query persists across vim sessions
+		keybindings = {
+			toggle_query_editor = 'o',
+			toggle_hl_groups = 'i',
+			toggle_injected_languages = 't',
+			toggle_anonymous_nodes = 'a',
+			toggle_language_display = 'I',
+			focus_language = 'f',
+			unfocus_language = 'F',
+			update = 'R',
+			goto_node = '<cr>',
+			show_help = '?',
+		},
+	}
 }
