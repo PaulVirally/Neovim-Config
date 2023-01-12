@@ -41,8 +41,6 @@ end
 -- end
 
 return {
-	snippet({trig = 'test', name = 'test_name', dscr = 'test_dscr'}, fmt([[test<>test]], {i(1)}, {delimiters = '<>'})),
-
 	snippet({trig = 'skeleton', name = 'Skeleton outline', dscr = 'Creates an empty LaTeX document', hidden = true},
 		fmt([[
 		\documentclass[12pt]{article}
