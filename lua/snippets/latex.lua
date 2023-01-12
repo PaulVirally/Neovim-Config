@@ -3,6 +3,7 @@ local snippet = ls.snippet
 local autosnippet = ls.extend_decorator.apply(snippet, {snippetType = 'autosnippet'})
 local i = ls.insert_node
 local t = ls.text_node
+local f = ls.function_node
 local extras = require('luasnip.extras')
 local rep = extras.rep
 local fmt = require('luasnip.extras.fmt').fmt
@@ -35,10 +36,9 @@ local function is_math_env()
 	return false
 end
 
--- local function is_env(env)
--- 	local is_inside = vim.fn['vimtex#env#is_inside'](env)
--- 	return (is_inside[1] > 0 and is_inside[2] > 0)
--- end
+local function not_math()
+	return not is_math_env()
+end
 
 return {
 	snippet({trig = 'skeleton', name = 'Skeleton outline', dscr = 'Creates an empty LaTeX document', hidden = true},
@@ -194,7 +194,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'table', name = 'Table environment', hidden = true},
+		{trig = 'table', name = 'table environment', hidden = true},
 		fmt([[
 		\begin{table}[<>]
 			\centering
@@ -244,7 +244,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'enum', name = 'Enumerate', hidden = true},
+		{trig = 'enum', name = 'enumerate environment', hidden = true},
 		fmt([[
 		\begin{enumerate}
 			\item <>
@@ -257,7 +257,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'item', name = 'Itemize', hidden = true},
+		{trig = 'item', name = 'itemize environment', hidden = true},
 		fmt([[
 		\begin{itemize}
 			\item <>
@@ -285,102 +285,168 @@ return {
 	autosnippet(
 		{trig = 'mm', name = 'Math mode', hidden = true},
 		fmt([[\(<>\)]], {i(1)}, {delimiters = '<>'}),
-		{condition = function() return not is_math_env() end, show_condition = function() return not is_math_env() end}
+		{condition = not_math, show_condition = not_math}
 	),
 
 	autosnippet(
 		{trig = 'mdm', name = 'Math mode (display style)', hidden = true},
 		fmt([[\(\displaystyle <>\)]], {i(1)}, {delimiters = '<>'}),
-		{condition = function() return not is_math_env() end, show_condition = function() return not is_math_env() end}
+		{condition = not_math, show_condition = not_math}
 	),
 
 	autosnippet(
 		{trig = 'dm', name = 'Display math mode', hidden = true},
 		fmt('\\[<>\\]', {i(1)}, {delimiters = '<>'}),
-		{condition = function() return not is_math_env() end, show_condition = function() return not is_math_env() end}
+		{condition = not_math, show_condition = not_math}
 	),
 
 	autosnippet(
-		{trig = '=>', name = 'Implies', hidden = true},
+		{trig = '=>', name = 'implies', hidden = true},
 		t([[\implies]]),
-		{condition = is_math_end, show_condition = is_math_env}
+		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = '<=', name = 'Implied by', hidden = true},
+		{trig = '<=', name = 'implied by', hidden = true},
 		t([[\impliedby]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'iff', name = 'If and only if', hidden = true},
+		{trig = 'iff', name = 'if and only if', hidden = true},
 		t([[\iff]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 
+	autosnippet(
+		{trig = 'align', name = 'align* environment', hidden = true},
+		fmt([[
+		\begin{align*}
+			<>
+		\end{align*}
+		]], {i(1)}, {delimiters = '<>'}),
+		{condition = not_math, show_condition = not_math}
+	),
+
+	autosnippet(
+		{trig = '//', name = 'fraction', hidden = true},
+		fmt([[\frac{<>}{<>}<>]], {i(1), i(2), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	), -- TODO auto fractions and auto subscripts
+
+	autosnippet(
+		{trig = '==', name = 'equals', hidden = true},
+		fmt([[&= <> \\]], {i(1)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '!=', name = 'not equal to', hidden = true},
+		t([[\neq]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'ceil', name = 'ceil', hidden = true},
+		fmt([[\left\lceil <> \right\rceil<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '([abcmp])mat', name = 'matrix', regTrig = true, hidden = true},
+		fmt([[\begin{<>matrix} <> \end{<>matrix}<>]],
+			{f(function(_, snip) return snip.captures[1] end), i(1), f(function(_, snip) return snip.captures[1] end), i(0)},
+			{delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '()', name = 'quantity ()', hidden = true},
+		fmt([[\qty(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '[]', name = 'quantity []', hidden = true},
+		fmt([[\qty[<>]<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'abs', name = 'absolute value', hidden = true},
+		fmt([[\abs{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'conj', name = 'conjugate', hidden = true},
+		t([[^{*}]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'dint', name = 'definite integral', hidden = true},
+		fmt([[\int_{<>}^{<>} <>]], {i(1), i(2), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'lint', name = 'line integral', hidden = true},
+		fmt([[\int_{<>} <>]], {i(1, [[\va*{\gamma}]]), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'cint', name = 'closed contour integral', hidden = true},
+		fmt([[\oint\limits_{<>} <>]], {i(1, [[\va*{\gamma}]]), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '2cint', name = 'closed surface integral', hidden = true},
+		fmt([[\oiint\limits_{<>} <>]], {i(1, [[\Sigma]]), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
 
 	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
-	-- 	t([[]]),
-	-- 	{condition = is_math_env, show_condition = is_math_env}
-	-- ),
-
-	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
-	-- 	t([[]]),
-	-- 	{condition = is_math_env, show_condition = is_math_env}
-	-- ),
-
-	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
-	-- 	t([[]]),
-	-- 	{condition = is_math_env, show_condition = is_math_env}
-	-- ),
-
-	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
-	-- 	t([[]]),
-	-- 	{condition = is_math_env, show_condition = is_math_env}
-	-- ),
-
-	-- autosnippet(
-	-- 	{trid = '', name = '', hidden = true},
+	-- 	{trig = '', name = '', hidden = true},
 	-- 	t([[]]),
 	-- 	{condition = is_math_env, show_condition = is_math_env}
 	-- ),
