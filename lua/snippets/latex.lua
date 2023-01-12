@@ -303,7 +303,7 @@ return {
 	autosnippet(
 		{trig = '=>', name = 'Implies', hidden = true},
 		t([[\implies]]),
-		{condition = function() return is_math_env() end, show_condition = function() return is_math_env() end}
+		{condition = is_math_end, show_condition = is_math_env}
 	),
 
 	autosnippet(
