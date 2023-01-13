@@ -4,6 +4,8 @@ local autosnippet = ls.extend_decorator.apply(snippet, {snippetType = 'autosnipp
 local i = ls.insert_node
 local t = ls.text_node
 local f = ls.function_node
+local d = ls.dynamic_node
+local sn = ls.snippet_node
 local extras = require('luasnip.extras')
 local rep = extras.rep
 local fmt = require('luasnip.extras.fmt').fmt
@@ -409,11 +411,25 @@ return {
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
-	-- autosnippet(
-	-- 	{trig = '', name = '', hidden = true},
-	-- 	t([[]]),
-	-- 	{condition = is_math_env, show_condition = is_math_env}
-	-- ),
+	autosnippet(
+		{trig = 'iint', name = 'indefinite integral', hidden = true},
+		fmt([[\int <>]], {i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '([234])int', name = 'multiple integral', regTrig = true, hidden = true},
+		fmt([[\<>nt\limits_{<>} <>]], {f(function(_, snip)
+			return string.rep('i', snip.captures[1] + 0)
+		end), d(1, function(_, snip)
+				local cap = snip.captures[1]
+				local default_text = ''
+				if cap == '2' then default_text = 'S' end
+				if cap == '3' then default_text = 'V' end
+				return sn(1, {i(1, default_text)})
+		end, {1}), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
 
 	-- autosnippet(
 	-- 	{trig = '', name = '', hidden = true},
