@@ -48,3 +48,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Hide end of buffer characters
 vim.wo.fillchars='eob: '
+
+-- Don't wrap lines
+vim.opt.wrap = false
