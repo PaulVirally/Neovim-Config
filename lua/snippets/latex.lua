@@ -64,6 +64,7 @@ return {
 		\usepackage{pgfplots}
 		\usepackage[italicdiff, arrowdel]{physics}
 		\usepackage{siunitx}
+		\usepackage{tensor}
 		\usepackage{wasysym}
 
 		% Variables
@@ -132,6 +133,7 @@ return {
 		\usepackage{pgfplots}
 		\usepackage[italicdiff, arrowdel]{physics}
 		\usepackage{siunitx}
+		\usepackage{tensor}
 		\usepackage{tikz}
 		\usepackage{wasysym}
 
@@ -162,6 +164,11 @@ return {
 		}
 
 		\renewcommand{\theequation}{\theenumi.\arabic{equation}}
+
+		% Allows \label[q]{some-label} to label a question
+		\crefname{q}{problem}{problems}
+		\Crefname{q}{Problem}{Problems}
+		\creflabelformat{q}{#2\textup{(#1)}#3}
 
 		% Begin document
 		\begin{document}
@@ -347,7 +354,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = '^^', name = 'superscript', hidden = true},
+		{trig = '^^', name = 'superscript', wordTrig = false, hidden = true},
 		fmt([[^{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
@@ -358,13 +365,13 @@ return {
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
-	autosnippet(
-		{trig = [[([%w\_]+)^]], name = 'superscript', regTrig = true, hidden = true},
-		d(1, function(_, snip)
-			return sn(2, fmt(snip.captures[1] .. '^{<>}<>', {i(1), i(0)}, {delimiters = '<>'}))
-		end, nil),
-		{condition = is_math_env, show_condition = is_math_env}
-	),
+	-- autosnippet(
+	-- 	{trig = [[([%w\_]+)^]], name = 'superscript', regTrig = true, hidden = true},
+	-- 	d(1, function(_, snip)
+	-- 		return sn(2, fmt(snip.captures[1] .. '^{<>}<>', {i(1), i(0)}, {delimiters = '<>'}))
+	-- 	end, nil),
+	-- 	{condition = is_math_env, show_condition = is_math_env}
+	-- ),
 
 	autosnippet(
 		{trig = '__', name = 'subscript', wordTrig = false, hidden = true},
@@ -372,16 +379,16 @@ return {
 		{}
 	),
 
-	autosnippet(
-		{trig = [[([%w\^]+)_]], name = 'subscript', regTrig = true, hidden = true},
-		d(1, function(_, snip)
-			return sn(2, fmt(snip.captures[1] .. '_{<>}<>', {i(1), i(0)}, {delimiters = '<>'}))
-		end, nil),
-		{condition = is_math_env, show_condition = is_math_env}
-	),
+	-- autosnippet(
+	-- 	{trig = [[([%w\]+)_]], name = 'subscript', regTrig = true, hidden = true},
+	-- 	d(1, function(_, snip)
+	-- 		return sn(2, fmt(snip.captures[1] .. '_{<>}<>', {i(1), i(0)}, {delimiters = '<>'}))
+	-- 	end, nil),
+	-- 	{condition = is_math_env, show_condition = is_math_env}
+	-- ),
 
 	autosnippet(
-		{trig = [[([%a\^]+)(%d)]], name = 'subscript', regTrig = true, wordTrig = false, hidden = true},
+		{trig = [[([%a\]+)(%d)]], name = 'subscript', regTrig = true, wordTrig = false, hidden = true},
 		d(1, function(_, snip)
 			return sn(2, fmt(snip.captures[1] .. '_{' .. snip.captures[2] .. '<>}<>', {i(1), i(0)}, {delimiters = '<>'}))
 		end, nil),
@@ -658,7 +665,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'ell', name = 'l', wordTrig = false, hidden = true},
+		{trig = 'lll', name = 'l', wordTrig = false, hidden = true},
 		t([[\ell]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
@@ -712,74 +719,74 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'sin', name = 'sin', hidden = true},
+		{trig = 'sin', name = 'sin', wordTrig = false, hidden = true},
 		fmt([[\sin(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'arcsin', name = 'arcsin', hidden = true},
+		{trig = 'arcsin', name = 'arcsin', wordTrig = false, hidden = true},
 		fmt([[\arcsin(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'cos', name = 'cos', hidden = true},
+		{trig = 'cos', name = 'cos', wordTrig = false, hidden = true},
 		fmt([[\cos(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'arccos', name = 'arccos', hidden = true},
+		{trig = 'arccos', name = 'arccos', wordTrig = false, hidden = true},
 		fmt([[\arccos(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'tan', name = 'tan', hidden = true},
+		{trig = 'tan', name = 'tan', wordTrig = false, hidden = true},
 		fmt([[\tan(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'arctan', name = 'arctan', hidden = true},
+		{trig = 'arctan', name = 'arctan', wordTrig = false, hidden = true},
 		fmt([[\tan(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 
 	autosnippet(
-		{trig = 'cot', name = 'cot', hidden = true},
+		{trig = 'cot', name = 'cot', wordTrig = false, hidden = true},
 		fmt([[\cot(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'sec', name = 'sec', hidden = true},
+		{trig = 'sec', name = 'sec', wordTrig = false, hidden = true},
 		fmt([[\sec(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'csc', name = 'csc', hidden = true},
+		{trig = 'csc', name = 'csc', wordTrig = false, hidden = true},
 		fmt([[\csc(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'ln', name = 'ln', hidden = true},
+		{trig = 'ln', name = 'ln', wordTrig = false, hidden = true},
 		fmt([[\ln(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'exp', name = 'exp', hidden = true},
+		{trig = 'exp', name = 'exp', wordTrig = false, hidden = true},
 		fmt([[\exp(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'log', name = 'log', hidden = true},
+		{trig = 'log', name = 'log', wordTrig = false, hidden = true},
 		fmt([[\log(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
@@ -787,6 +794,12 @@ return {
 	autosnippet(
 		{trig = '->', name = 'to', wordTrig = false, hidden = true},
 		t([[\to ]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = ':>', name = 'maps to', wordTrig = false, hidden = true},
+		t([[\mapsto ]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
@@ -1164,7 +1177,7 @@ return {
 
 	autosnippet(
 		{trig = ',w', name = 'omega', wordTrig = false, hidden = true},
-		t([[\alpha]]),
+		t([[\omega]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
@@ -1199,7 +1212,7 @@ return {
 
 	autosnippet(
 		{trig = 'vec', name = 'vector', wordTrig = false, hidden = true},
-		fmt([[\vb*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\va*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
@@ -1386,4 +1399,28 @@ return {
 		t([[\otimes]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
+
+	autosnippet(
+		{trig = '()', name = 'parentheses', wordTrig = false, hidden = true},
+		fmt([[\qty(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = '[]', name = 'square brackets', wordTrig = false, hidden = true},
+		fmt([[\qty[<>]<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'ind', name = 'indices', wordTrig = false, hidden = true},
+		fmt([[\indices{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'part', name = 'partial', wordTrig = false, hidden = true},
+		t([[\partial]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	)
 }
