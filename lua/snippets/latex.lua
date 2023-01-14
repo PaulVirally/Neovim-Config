@@ -433,7 +433,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'conj', name = 'conjugate', hidden = true},
+		{trig = 'conj', name = 'conjugate', wordTrig = false, hidden = true},
 		t([[^{*}]]), {condition = is_math_env, show_condition = is_math_env}),
 
 	autosnippet(
@@ -1199,7 +1199,7 @@ return {
 
 	autosnippet(
 		{trig = 'vec', name = 'vector', wordTrig = false, hidden = true},
-		fmt([[\va*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\vb*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
