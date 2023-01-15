@@ -166,8 +166,8 @@ return {
 		\renewcommand{\theequation}{\theenumi.\arabic{equation}}
 
 		% Allows \label[q]{some-label} to label a question
-		\crefname{q}{problem}{problems}
-		\Crefname{q}{Problem}{Problems}
+		\crefname{q}{question}{questions}
+		\Crefname{q}{Question}{Questions}
 		\creflabelformat{q}{#2\textup{(#1)}#3}
 
 		% Begin document
