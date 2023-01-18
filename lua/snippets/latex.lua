@@ -1212,7 +1212,7 @@ return {
 
 	autosnippet(
 		{trig = 'vec', name = 'vector', wordTrig = false, hidden = true},
-		fmt([[\va*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\vb*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
@@ -1422,5 +1422,11 @@ return {
 		{trig = 'part', name = 'partial', wordTrig = false, hidden = true},
 		t([[\partial]]),
 		{condition = is_math_env, show_condition = is_math_env}
-	)
+	),
+
+	autosnippet(
+		{trig = 'msf', name = 'mathsf', wordTrig = false, hidden = true},
+		fmt([[\mathsf{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
 }
