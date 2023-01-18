@@ -69,6 +69,7 @@ local servers = {
 	pyright = {}, -- Python
 	rust_analyzer = {}, -- Rust
 	tsserver = {}, -- JavaScript, TypeScript, etc.
+	quick_lint_js = {}, -- JavaScript linter
 	ltex = {}, -- Spelling and grammar in LaTeX
 	texlab = {}, -- LaTeX
 	sumneko_lua = { -- Lua
