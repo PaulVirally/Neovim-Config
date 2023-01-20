@@ -317,12 +317,6 @@ return {
 	),
 
 	autosnippet(
-		{trig = '<=', name = 'implied by', hidden = true},
-		t([[\impliedby]]),
-		{condition = is_math_env, show_condition = is_math_env}
-	),
-
-	autosnippet(
 		{trig = 'iff', name = 'if and only if', hidden = true},
 		t([[\iff]]),
 		{condition = is_math_env, show_condition = is_math_env}
