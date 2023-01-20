@@ -593,13 +593,13 @@ return {
 
 	autosnippet(
 		{trig = '<=', name = 'leq', wordTrig = false, hidden = true},
-		t([[\le]]),
+		t([[\le ]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
 		{trig = '>=', name = 'geq', wordTrig = false, hidden = true},
-		t([[\ge]]),
+		t([[\ge ]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
