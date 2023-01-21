@@ -215,7 +215,7 @@ return {
 			\end{tabular}
 		\end{table}
 		]],
-			{i(1, 'h!'), i(2, 'Caption'), i(3, 'label'), i(4), i(0)},
+			{i(1, '!ht'), i(2, 'Caption'), i(3, 'label'), i(4), i(0)},
 			{delimiters = '<>'}
 		),
 		{condition = line_begin, show_condition = line_begin}
@@ -231,7 +231,7 @@ return {
 			\label{fig:<>}
 		\end{figure}
 		]],
-			{i(1, 'h!'), i(2, '0.8'), i(3), i(4, 'Caption'), i(5, 'label')},
+			{i(1, '!ht'), i(2, '0.8'), i(3), i(4, 'Caption'), i(5, 'label')},
 			{delimiters = '<>'}
 		),
 		{condition = line_begin, show_condition = line_begin}
@@ -247,7 +247,7 @@ return {
 			\label{fig:<>}
 		\end{figure}
 		]],
-			{i(1, 'h!'), i(2, '0.7'), i(3), i(4, 'Caption'), i(5, 'label')},
+			{i(1, '!ht'), i(2, '0.7'), i(3), i(4, 'Caption'), i(5, 'label')},
 			{delimiters = '<>'}
 		),
 		{condition = line_begin, show_condition = line_begin}
@@ -439,7 +439,7 @@ return {
 
 	autosnippet(
 		{trig = 'dint', name = 'definite integral', hidden = true},
-		fmt([[\int_{<>}^{<>} <>]], {i(1), i(2), i(0)}, {delimiters = '<>'}),
+		fmt([[\int_{<>}^{<>} <>]], {i(1, [[-\infty]]), i(2, [[\infty]]), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
@@ -1421,6 +1421,12 @@ return {
 	autosnippet(
 		{trig = 'msf', name = 'mathsf', wordTrig = false, hidden = true},
 		fmt([[\mathsf{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'dee', name = 'differential', wordTrig = false, hidden = true},
+		fmt([[\dd{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 }
