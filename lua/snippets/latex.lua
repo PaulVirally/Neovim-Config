@@ -1413,7 +1413,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'part', name = 'partial', wordTrig = false, hidden = true},
+		{trig = 'par', name = 'partial', wordTrig = false, hidden = true},
 		t([[\partial]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
