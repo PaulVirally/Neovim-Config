@@ -122,6 +122,16 @@ require('lazy').setup({
 	-- Snippets
 	'L3MON4D3/LuaSnip',
 
+	-- winbar
+	{
+		'utilyre/barbecue.nvim',
+		dependencies = {
+		    'neovim/nvim-lspconfig',
+		    'SmiteshP/nvim-navic',
+		    'nvim-tree/nvim-web-devicons',
+		},
+	}
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
@@ -154,4 +164,5 @@ require('plugins/startup_conf')
 require('plugins/neorg_conf')
 require('plugins/vimtex_conf')
 require('plugins/luasnip_conf')
+require('barbecue').setup()
 require('plugins/caskey_conf')
