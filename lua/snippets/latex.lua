@@ -900,7 +900,7 @@ return {
 	autosnippet(
 		{trig = 'SI', name = 'SI', wordTrig = false, hidden = true},
 		fmt([[\SI{<>}{<>}<>]], {i(1), i(2), i(0)}, {delimiters = '<>'}),
-		{condition = is_math_env, show_condition = is_math_env}
+		{}
 	),
 
 	autosnippet(
