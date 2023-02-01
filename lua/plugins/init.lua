@@ -138,7 +138,10 @@ require('lazy').setup({
 		dependencies = {
 			'tpope/vim-repeat'
 		}
-	}
+	},
+
+	-- Wakatime
+	'wakatime/vim-wakatime'
 
 	-- Neorg (doesn't compile...)
 	-- {
