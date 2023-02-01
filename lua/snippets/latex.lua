@@ -489,7 +489,7 @@ return {
 
 	autosnippet(
 		{trig = 'lim', name = 'limit', hidden = true},
-		fmt([[\lim_{<>} \to <>]], {i(1, 'n'), i(0, '\\infty')}, {delimiters = '<>'}),
+		fmt([[\lim_{<> \to <>}<>]], {i(1, 'n'), i(2, '\\infty'), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
