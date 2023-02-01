@@ -130,6 +130,14 @@ require('lazy').setup({
 		    'SmiteshP/nvim-navic',
 		    'nvim-tree/nvim-web-devicons',
 		},
+	},
+
+	-- Leap (fast text motions)
+	{
+		'ggandor/leap.nvim',
+		dependencies = {
+			'tpope/vim-repeat'
+		}
 	}
 
 	-- Neorg (doesn't compile...)
@@ -165,4 +173,5 @@ require('plugins/neorg_conf')
 require('plugins/vimtex_conf')
 require('plugins/luasnip_conf')
 require('barbecue').setup()
+require('leap').add_default_mappings()
 require('plugins/caskey_conf')
