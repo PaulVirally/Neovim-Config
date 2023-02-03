@@ -858,7 +858,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'CC', name = 'comples', wordTrig = false, hidden = true},
+		{trig = 'CC', name = 'complex', wordTrig = false, hidden = true},
 		t([[\mathbb{C}]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
