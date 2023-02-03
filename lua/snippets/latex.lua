@@ -871,7 +871,7 @@ return {
 
 	autosnippet(
 		{trig = 'ZZ', name = 'integer', wordTrig = false, hidden = true},
-		t([[\mathbb{R}]]),
+		t([[\mathbb{Z}]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
