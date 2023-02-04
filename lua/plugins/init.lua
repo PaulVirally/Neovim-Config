@@ -54,7 +54,7 @@ require('lazy').setup({
 	},
 
 	-- Copilot
-	{'github/copilot.vim', enabled = false},
+	'github/copilot.vim',
 
 	-- Telescope (fuzzy finder)
 	{
@@ -161,7 +161,7 @@ require('plugins/noice_conf')
 require('plugins/lsp_conf')
 require('gitsigns').setup()
 require('plugins/treesitter_conf')
--- require('plugins/copilot_conf')
+require('plugins/copilot_conf')
 require('plugins/cmp_conf')
 require('plugins/indent_blankline_conf')
 require('trouble').setup()
