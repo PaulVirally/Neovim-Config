@@ -6,9 +6,9 @@ local ck = require('caskey')
 require('nvim_comment').setup()
 local config = {
 
-	-- All normal move + visual mode + insert move remaps
+	-- All normal move + visual mode + insert + terminal move remaps
 	{
-		mode = {'n', 'x', 'i'},
+		mode = {'n', 'x', 'i', 't'},
 
 		-- Save with command + s
 		['<D-s>'] = {act = ck.cmd('w'), desc = 'Save file'},
@@ -120,6 +120,11 @@ local config = {
 		-- Restore last session
 		['<Leader>ql'] = {act = function() require('persistence').load({last=true}) end, desc = 'Load last session'},
 		['<Leader>qc'] = {act = require('persistence').load, desc = 'Load session for current directory'},
+
+		-- Open a terminal
+		['<C-`><C-`>'] = {act = ck.cmd('ToggleTerm direction=float'), desc = 'Open a terminal (floating)'},
+		['<C-`><C-j>'] = {act = ck.cmd('ToggleTerm direction=horizontal'), desc = 'Open a terminal (below)'},
+		['<C-`><C-l>'] = {act = ck.cmd('ToggleTerm direction=vertical dir=' .. tostring(vim.o.columns*0.4)), desc = 'Open a terminal (right)'},
 	},
 
 	-- All visual mode remaps
@@ -137,6 +142,23 @@ local config = {
 		-- Comment
 		['<D-/>'] = {act = ":'<,'>CommentToggle<CR>gv", desc = 'Toggle comment selection'},
 	},
+
+	-- Terminal mode remaps
+	{
+		mode = 't',
+
+		-- Enter normal mode
+		['<esc>'] = {act = '<C-\\><C-n>', desc = 'Exit terminal mode'},
+
+		-- Move between windows
+		['<C-h>'] = {act = '<C-\\><C-n><C-w>h', desc = 'Move to the left window'},
+		['<C-j>'] = {act = '<C-\\><C-n><C-w>j', desc = 'Move to the bottom window'},
+		['<C-k>'] = {act = '<C-\\><C-n><C-w>k', desc = 'Move to the top window'},
+		['<C-l>'] = {act = '<C-\\><C-n><C-w>l', desc = 'Move to the right window'},
+
+		-- Close terminal
+		['<C-`>'] = {act = ck.cmd('ToggleTerm'), desc = 'Close terminal'},
+	}
 }
 
 

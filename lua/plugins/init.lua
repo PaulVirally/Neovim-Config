@@ -141,7 +141,10 @@ require('lazy').setup({
 	},
 
 	-- Wakatime
-	'wakatime/vim-wakatime'
+	'wakatime/vim-wakatime',
+
+	-- Terminal
+	'akinsho/toggleterm.nvim'
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -177,4 +180,5 @@ require('plugins/vimtex_conf')
 require('plugins/luasnip_conf')
 require('barbecue').setup()
 require('leap').add_default_mappings()
+require('plugins/toggleterm_conf')
 require('plugins/caskey_conf')
