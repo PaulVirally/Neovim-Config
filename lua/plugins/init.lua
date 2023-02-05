@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- Sewt the leader key before lazy so the mappings work correctly (apparently... see lazy.nvim docs)
+-- Set the leader key before lazy so the mappings work correctly (apparently... see lazy.nvim docs)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -111,7 +111,13 @@ require('lazy').setup({
 	'nvim-tree/nvim-tree.lua',
 
 	-- Save session (buffers, curr dir, etc.)
-	'folke/persistence.nvim',
+	{
+		'Shatur/neovim-session-manager',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim', -- For better vim.ui.select and vim.ui.input
+		}
+	},
 
 	-- Splash screen
 	'startup-nvim/startup.nvim',
@@ -173,7 +179,6 @@ require('plugins/lualine_conf')
 require('dim').setup({})
 require('bufferline').setup()
 require('plugins/nvim_tree_conf')
-require('persistence').setup()
 require('plugins/startup_conf')
 require('plugins/neorg_conf')
 require('plugins/vimtex_conf')
@@ -181,4 +186,6 @@ require('plugins/luasnip_conf')
 require('barbecue').setup()
 require('leap').add_default_mappings()
 require('plugins/toggleterm_conf')
+require('dressing').setup()
+require('plugins/session_manager_conf')
 require('plugins/caskey_conf')

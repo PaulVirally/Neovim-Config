@@ -118,8 +118,9 @@ local config = {
 		['<Leader>t'] = {act = ck.cmd('NvimTreeToggle'), desc = 'Toggle file explorer'},
 
 		-- Restore last session
-		['<Leader>ql'] = {act = function() require('persistence').load({last=true}) end, desc = 'Load last session'},
-		['<Leader>qc'] = {act = require('persistence').load, desc = 'Load session for current directory'},
+		['<Leader>qq'] = {act = ck.cmd('SessionManager load_session'), desc = 'Selection session to load'},
+		['<Leader>ql'] = {act = ck.cmd('SessionManager load_last_session'), desc = 'Load last session'},
+		['<Leader>qc'] = {act = ck.cmd('SessionManager load_current_dir_session'), desc = 'Load session for current directory'},
 
 		-- Open a terminal
 		['<C-`><C-`>'] = {act = ck.cmd('ToggleTerm direction=float'), desc = 'Open a terminal (floating)'},
