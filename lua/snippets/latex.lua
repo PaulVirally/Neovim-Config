@@ -1429,4 +1429,10 @@ return {
 		fmt([[\dd{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
+
+	autosnippet(
+		{trig = 'mring', name = 'math ring', wordTrig = true, hidden = true},
+		fmt([[\mathring{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
 }
