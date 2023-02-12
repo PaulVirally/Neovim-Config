@@ -72,7 +72,7 @@ local servers = {
 	quick_lint_js = {}, -- JavaScript linter
 	ltex = {}, -- Spelling and grammar in LaTeX
 	texlab = {}, -- LaTeX
-	sumneko_lua = { -- Lua
+	lua_ls = { -- Lua
 		Lua = {
 			workspace = {checkThirdParty = false},
 			telemetry = {enable = false},
