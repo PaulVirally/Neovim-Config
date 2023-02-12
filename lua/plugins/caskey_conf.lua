@@ -82,19 +82,19 @@ local config = {
 		['<C-l>'] = {act = '<C-w>l', desc = 'Move to the right window'},
 
 		-- Telescope
-		['<Leader>?'] = {act = require('telescope.builtin').oldfiles, desc = '[?] Find recently opened files'},
-		['<Leader><Space>'] = {act = require('telescope.builtin').buffers, desc = '[ ] Find existing buffers'},
+		['<Leader>?'] = {act = require('telescope.builtin').oldfiles, desc = 'Find recently opened files'},
+		['<Leader><Space>'] = {act = require('telescope.builtin').buffers, desc = 'Find existing buffers'},
 		['<Leader>/'] = {act = function()
 			require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
 				winblend = 10,
 				previewer = false,
 			})
-		end, desc = '[/] Fuzzily search in current buffer]'},
-		['<Leader>sf'] = {act = require('telescope').extensions.frecency.frecency, desc = '[S]earch [F]iles'},
-		['<Leader>sh'] = {act = require('telescope.builtin').help_tags, desc = '[S]earch [H]elp'},
-		['<Leader>sw'] = {act = require('telescope.builtin').grep_string, desc = '[S]earch current [W]ord'},
-		['<Leader>sg'] = {act = require('telescope.builtin').live_grep, desc = '[S]earch by [G]rep'},
-		['<Leader>sd'] = {act = require('telescope.builtin').diagnostics, desc = '[S]earch [D]iagnostics'},
+		end, desc = 'Fuzzy search in current buffer]'},
+		['<Leader>sf'] = {act = require('telescope').extensions.frecency.frecency, desc = 'Search files'},
+		['<Leader>sh'] = {act = require('telescope.builtin').help_tags, desc = 'Search help'},
+		['<Leader>sw'] = {act = require('telescope.builtin').grep_string, desc = 'Search current word'},
+		['<Leader>sg'] = {act = require('telescope.builtin').live_grep, desc = 'Search by grep'},
+		['<Leader>sd'] = {act = require('telescope.builtin').diagnostics, desc = 'Search diagnostics'},
 
 		-- Diagnostics
 		['[d'] = {act = vim.diagnostic.goto_prev, desc = 'Go to previous diagnostic'},
@@ -108,6 +108,7 @@ local config = {
 
 		-- Git signs
 		['gp'] = {act = ck.cmd('Gitsigns preview_hunk_inline'), desc = 'Preview git diff'},
+		['gR'] = {act = ck.cmd('Gitsigns reset_hunk'), desc = 'Restore git hunk'},
 
 		-- Buffer navigation
 		['<D-[>'] = {act = ck.cmd('BufferPrevious'), desc = 'Go to previous buffer'},
