@@ -1314,7 +1314,7 @@ return {
 
 	autosnippet(
 		{trig = 'mel', name = 'matrix element', wordTrig = false, hidden = true},
-		fmt([[\mell{<>}{<>}{<>}<>]], {i(1), i(2), i(3), i(0)}, {delimiters = '<>'}),
+		fmt([[\mel{<>}{<>}{<>}<>]], {i(1), i(2), i(3), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
