@@ -1429,4 +1429,16 @@ return {
 		fmt([[\mathring{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
+
+	autosnippet(
+		{trig = 'star', name = 'Star', wordTrig = true, hidden = true},
+		t([[\star]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'pi', name = 'pi', wordTrig = true, hidden = true},
+		t([[\pi]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
 }
