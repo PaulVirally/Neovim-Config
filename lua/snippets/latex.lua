@@ -1431,13 +1431,13 @@ return {
 	),
 
 	autosnippet(
-		{trig = 'star', name = 'Star', wordTrig = true, hidden = true},
-		t([[\star]]),
+		{trig = 'star', name = 'Star', wordTrig = false, hidden = true},
+		t([[\star ]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
-		{trig = 'pi', name = 'pi', wordTrig = true, hidden = true},
+		{trig = 'pi', name = 'pi', wordTrig = false, hidden = true},
 		t([[\pi]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
