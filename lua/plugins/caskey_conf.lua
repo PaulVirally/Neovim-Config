@@ -127,6 +127,10 @@ local config = {
 		['<C-`><C-`>'] = {act = ck.cmd('ToggleTerm direction=float'), desc = 'Open a terminal (floating)'},
 		['<C-`><C-j>'] = {act = ck.cmd('ToggleTerm direction=horizontal'), desc = 'Open a terminal (below)'},
 		['<C-`><C-l>'] = {act = ck.cmd('ToggleTerm direction=vertical dir=' .. tostring(vim.o.columns*0.4)), desc = 'Open a terminal (right)'},
+
+		-- 🦆
+		['<Leader>dd'] = {act = function() require('duck').hatch() end, desc = '🦆'},
+		['<Leader>dk'] = {act = function() require('duck').cook() end, desc = '🚫🦆'},
 	},
 
 	-- All visual mode remaps

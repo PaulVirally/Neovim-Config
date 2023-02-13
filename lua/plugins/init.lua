@@ -155,6 +155,9 @@ require('lazy').setup({
 	-- Underline word under cursor
 	'RRethy/vim-illuminate',
 
+	-- 🦆
+	'tamton-aquib/duck.nvim'
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
