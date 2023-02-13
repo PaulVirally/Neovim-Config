@@ -150,7 +150,10 @@ require('lazy').setup({
 	'wakatime/vim-wakatime',
 
 	-- Terminal
-	'akinsho/toggleterm.nvim'
+	'akinsho/toggleterm.nvim',
+
+	-- Underline word under cursor
+	'RRethy/vim-illuminate',
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -188,4 +191,5 @@ require('leap').add_default_mappings()
 require('plugins/toggleterm_conf')
 require('dressing').setup()
 require('plugins/session_manager_conf')
+require('plugins/illuminate_conf')
 require('plugins/caskey_conf')
