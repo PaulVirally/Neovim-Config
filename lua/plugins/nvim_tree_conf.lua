@@ -26,4 +26,15 @@ require('nvim-tree').setup({
 			},
 		},
 	},
+	-- update_focused_file = {
+	-- 	enable = true,
+	-- 	update_cwd = true,
+	-- },
+})
+
+-- Changes vim's working directory to the current file's directory
+local cwd_group = vim.api.nvim_create_augroup('CWDOnBufEnter', {clear = true})
+vim.api.nvim_create_autocmd('BufEnter', {
+	  command = 'silent! lcd %:p:h',
+	  group = cwd_group
 })
