@@ -156,7 +156,10 @@ require('lazy').setup({
 	'RRethy/vim-illuminate',
 
 	-- 🦆
-	'tamton-aquib/duck.nvim'
+	'tamton-aquib/duck.nvim',
+
+	-- Colorcolumn
+	'm4xshen/smartcolumn.nvim',
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -195,4 +198,5 @@ require('plugins/toggleterm_conf')
 require('dressing').setup()
 require('plugins/session_manager_conf')
 require('plugins/illuminate_conf')
+require('plugins/smartcolumn_conf')
 require('plugins/caskey_conf')
