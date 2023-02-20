@@ -159,7 +159,10 @@ require('lazy').setup({
 	'tamton-aquib/duck.nvim',
 
 	-- Colorcolumn
-	'm4xshen/smartcolumn.nvim',
+	{
+		'm4xshen/smartcolumn.nvim',
+		enabled = false
+	},
 
 	-- Screensaver
 	'tamton-aquib/zone.nvim'
