@@ -161,6 +161,9 @@ require('lazy').setup({
 	-- Colorcolumn
 	'm4xshen/smartcolumn.nvim',
 
+	-- Screensaver
+	'tamton-aquib/zone.nvim'
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
@@ -199,4 +202,5 @@ require('dressing').setup()
 require('plugins/session_manager_conf')
 require('plugins/illuminate_conf')
 require('plugins/smartcolumn_conf')
+require('plugins/zone_conf')
 require('plugins/caskey_conf')
