@@ -1,6 +1,6 @@
 -- Neorg config
 
-local status, neorg = pcall(require 'neorg')
+local status, neorg = pcall(require, 'neorg')
 if not status then
 	return
 end
