@@ -25,7 +25,7 @@ require('startup').setup({
 		title = 'Mappings',
 		margin = 5,
 		content = {
-			{' Load Last Session', 'lua require("persistence").load({last=true})', '<leader>ql'},
+			{' Load a Previous Session', 'SessionManager load_session', '<leader>qq'},
 			{' Find File', 'lua require("telescope").extensions.frecency.frecency()', '<leader>sf'},
 			{' File Browser', 'NvimTreeToggle', '<leader>t'},
 			{' New File', 'lua require("startup").new_file()', '<leader>nf'},
