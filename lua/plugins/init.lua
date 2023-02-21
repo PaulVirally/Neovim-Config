@@ -167,6 +167,10 @@ require('lazy').setup({
 	-- Screensaver
 	'tamton-aquib/zone.nvim',
 
+
+	-- Surround
+	'kylechui/nvim-surround',
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
@@ -222,4 +226,5 @@ require('plugins/session_manager_conf')
 require('plugins/illuminate_conf')
 require('plugins/smartcolumn_conf')
 require('plugins/zone_conf')
+require("nvim-surround").setup()
 require('plugins/caskey_conf')
