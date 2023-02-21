@@ -165,12 +165,28 @@ require('lazy').setup({
 	},
 
 	-- Screensaver
-	'tamton-aquib/zone.nvim'
+	'tamton-aquib/zone.nvim',
 
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
+	-- 	dependencies = {'nvim-lua/plenary.nvim'},
 	-- 	build = ':Neorg sync-parsers',
+	-- 	opts = {
+	-- 		load = {
+	-- 			["core.defaults"] = {}, -- Loads default behaviour
+	-- 			["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+	-- 			["core.norg.dirman"] = { -- Manages Neorg workspaces
+	-- 				config = {
+	-- 					workspaces = {
+	-- 						notes = "/Users/pvirally/Dropbox/neorg/notes",
+	-- 						waterloo = '/Users/pvirally/Dropbox/neorg/Waterloo',
+	-- 						poly = '/Users/pvirally/Dropbox/neorg/Poly',
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
 	-- },
 }, {
 	-- Lazy options
