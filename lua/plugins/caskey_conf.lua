@@ -131,6 +131,12 @@ local config = {
 		-- 🦆
 		['<Leader>dd'] = {act = function() require('duck').hatch() end, desc = '🦆'},
 		['<Leader>dk'] = {act = function() require('duck').cook() end, desc = '🚫🦆'},
+
+		-- Peek
+		['<Leader>pd'] = {act = ck.cmd('Glance definitions'), desc = 'Peek definition'},
+		['<Leader>pr'] = {act = ck.cmd('Glance references'), desc = 'Peek reference'},
+		['<Leader>pt'] = {act = ck.cmd('Glance type-definitions'), desc = 'Peek type definition'},
+		['<Leader>pi'] = {act = ck.cmd('Glance implementations'), desc = 'Peek implementation'},
 	},
 
 	-- All visual mode remaps

@@ -171,6 +171,9 @@ require('lazy').setup({
 	-- Surround
 	'kylechui/nvim-surround',
 
+	-- Peek definitions, references, etc
+	'dnlhc/glance.nvim'
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
@@ -226,5 +229,6 @@ require('plugins/session_manager_conf')
 require('plugins/illuminate_conf')
 require('plugins/smartcolumn_conf')
 require('plugins/zone_conf')
-require("nvim-surround").setup()
+require('nvim-surround').setup()
+require('plugins/glance_conf')
 require('plugins/caskey_conf')
