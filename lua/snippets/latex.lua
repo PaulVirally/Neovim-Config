@@ -1327,7 +1327,7 @@ return {
 	),
 
 	autosnippet(
-		{trig = '_^', name = 'eval', wordTrig = false, hidden = true},
+		{trig = '_%^', name = 'eval', regTrig = true, hidden = true},
 		fmt([[\eval{<>}_{<>}^{<>}<>]], {i(3), i(1), i(2), i(0)}, {delimiters = '<>'}),
 		{condition = not_math, show_condition = not_math}
 	),
