@@ -67,6 +67,7 @@ end
 local servers = {
 	clangd = {}, -- C, C++, etc.
 	pyright = {}, -- Python
+	ruff_lsp = {}, -- Python
 	rust_analyzer = {}, -- Rust
 	tsserver = {}, -- JavaScript, TypeScript, etc.
 	quick_lint_js = {}, -- JavaScript linter
