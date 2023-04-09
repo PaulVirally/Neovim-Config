@@ -991,7 +991,7 @@ return {
 
 	autosnippet(
 		{trig = ',e', name = 'epsilon', wordTrig = false, hidden = true},
-		t([[\epsilon]]),
+		t([[\varepsilon]]),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
