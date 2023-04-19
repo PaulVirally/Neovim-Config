@@ -165,7 +165,7 @@ require('lazy').setup({
 	},
 
 	-- Screensaver
-	'tamton-aquib/zone.nvim',
+	-- 'tamton-aquib/zone.nvim',
 
 
 	-- Surround
@@ -228,7 +228,7 @@ require('dressing').setup()
 require('plugins/session_manager_conf')
 require('plugins/illuminate_conf')
 require('plugins/smartcolumn_conf')
-require('plugins/zone_conf')
+-- require('plugins/zone_conf')
 require('nvim-surround').setup()
 require('plugins/glance_conf')
 require('plugins/caskey_conf')
