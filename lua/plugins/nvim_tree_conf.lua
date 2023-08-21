@@ -1,6 +1,14 @@
--- nvim-tree config
+local function custom_on_attach(bufnr)
+	local api = require('nvim-tree.api')
+	local function opts(desc)
+		return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+	vim.keymap.set('n', 'X', api.tree.toggle_git_clean_filter, opts('Toggle Filter: Git Clean'))
+	vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
+end
 
 require('nvim-tree').setup({
+	on_attach = custom_on_attach,
 	view = {
 		adaptive_size = true,
 		side = 'right',
@@ -11,8 +19,14 @@ require('nvim-tree').setup({
 			},
 		}
 	},
+	actions = {
+		change_dir = {
+			global = false -- Set to true to use :cd instead of :lcd
+		}
+	},
 	update_focused_file = {
 		enable = true,
+		-- update_cwd = true,
 	},
 	modified = {
 		enable = true,
@@ -26,10 +40,6 @@ require('nvim-tree').setup({
 			},
 		},
 	},
-	-- update_focused_file = {
-	-- 	enable = true,
-	-- 	update_cwd = true,
-	-- },
 })
 
 -- Changes vim's working directory to the current file's directory
