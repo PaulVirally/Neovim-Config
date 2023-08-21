@@ -69,6 +69,7 @@ local servers = {
 	pyright = {}, -- Python
 	ruff_lsp = {}, -- Python
 	rust_analyzer = {}, -- Rust
+	julials = {}, -- Julia
 	tsserver = {}, -- JavaScript, TypeScript, etc.
 	quick_lint_js = {}, -- JavaScript linter
 	ltex = {}, -- Spelling and grammar in LaTeX
