@@ -3,6 +3,9 @@ local function custom_on_attach(bufnr)
 	local function opts(desc)
 		return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
+	api.config.mappings.default_on_attach(bufnr) -- Default mappings
+
+	-- Custom mappings
 	vim.keymap.set('n', 'X', api.tree.toggle_git_clean_filter, opts('Toggle Filter: Git Clean'))
 	vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
 end
@@ -12,12 +15,6 @@ require('nvim-tree').setup({
 	view = {
 		adaptive_size = true,
 		side = 'right',
-		mappings = {
-			list = {
-				{key = 'C', action = 'cd'},
-				{key = 'X', action = 'toggle_git_clean'}
-			},
-		}
 	},
 	actions = {
 		change_dir = {
