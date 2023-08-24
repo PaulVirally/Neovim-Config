@@ -1200,7 +1200,7 @@ return {
 
 	autosnippet(
 		{trig = 'vec', name = 'vector', wordTrig = false, hidden = true},
-		fmt([[\vb*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\va*{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
