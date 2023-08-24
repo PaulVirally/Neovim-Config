@@ -172,7 +172,10 @@ require('lazy').setup({
 	'kylechui/nvim-surround',
 
 	-- Peek definitions, references, etc
-	'dnlhc/glance.nvim'
+	'dnlhc/glance.nvim',
+
+	-- Treat the file system as a text buffer
+	'stevearc/oil.nvim'
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -206,7 +209,7 @@ require('lazy').setup({
 require('plugins/catppuccin_conf')
 require('plugins/noice_conf')
 require('plugins/lsp_conf')
-require('gitsigns').setup()
+require('gitsigns').setup({})
 require('plugins/treesitter_conf')
 require('plugins/copilot_conf')
 require('plugins/cmp_conf')
@@ -232,3 +235,4 @@ require('plugins/smartcolumn_conf')
 require('nvim-surround').setup()
 require('plugins/glance_conf')
 require('plugins/caskey_conf')
+require('oil').setup()
