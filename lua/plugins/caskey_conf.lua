@@ -6,7 +6,7 @@ local ck = require('caskey')
 require('nvim_comment').setup()
 local config = {
 
-	-- All normal move + visual mode + insert + terminal move remaps
+	-- All normal mode + visual mode + insert + terminal mode remaps
 	{
 		mode = {'n', 'x', 'i', 't'},
 
@@ -122,6 +122,9 @@ local config = {
 		['<Leader>qq'] = {act = ck.cmd('SessionManager load_session'), desc = 'Selection session to load'},
 		['<Leader>ql'] = {act = ck.cmd('SessionManager load_last_session'), desc = 'Load last session'},
 		['<Leader>qc'] = {act = ck.cmd('SessionManager load_current_dir_session'), desc = 'Load session for current directory'},
+
+		-- Save current session
+		['<Leader>qs'] = {act = ck.cmd('SessionManager save_current_session'), desc = 'Save session'},
 
 		-- Open a terminal
 		['<C-`><C-`>'] = {act = ck.cmd('ToggleTerm direction=float'), desc = 'Open a terminal (floating)'},
