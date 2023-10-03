@@ -55,17 +55,21 @@ return {
 		\usepackage{amsthm}
 		\usepackage{bbm}
 		\usepackage{cancel}
-		\usepackage{hyperref}
-		\usepackage[nameinlink]{cleveref}
 		\usepackage{empheq}
 		\usepackage{fancyhdr}
 		\usepackage{geometry}[margins=1.5in]
+		\usepackage{hyperref}
+		\usepackage[nameinlink]{cleveref}
 		\usepackage{mathtools}
 		\usepackage{pgfplots}
-		\usepackage[italicdiff, arrowdel]{physics}
+		\usepackage{physics}
 		\usepackage{siunitx}
 		\usepackage{tensor}
+		\usepackage{tikz}
+		\usepackage{upgreek}
 		\usepackage{wasysym}
+
+		\usetikzlibrary{calc,patterns,angles,quotes}
 
 		% Variables
 		\newcommand{\theAuthor}{Paul Virally}
@@ -82,9 +86,25 @@ return {
 		\cfoot{}
 		\rfoot{Page \thepage}
 
+		\newcommand\red[1]{
+			\ensuremath{\textcolor{red}{#1}}
+		}
+
+		\newcommand\blue[1]{
+			\ensuremath{\textcolor{blue}{#1}}
+		}
+
+		\newcommand\todo[1]{
+			\Huge{\color{red}{TODO:~#1}}\normalsize{}
+		}
+
+		\renewcommand\qedsymbol{\(\blacksquare\)}
+		\newtheorem{theorem}{Theorem}
+		\numberwithin{theorem}{section}
+		\numberwithin{equation}{section}
+
 		% Document
 		\begin{document}
-
 
 		% Cover page
 		\begin{titlepage}
