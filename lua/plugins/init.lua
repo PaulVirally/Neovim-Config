@@ -89,7 +89,10 @@ require('lazy').setup({
 	'terrortylor/nvim-comment',
 
 	-- Indent guides
-	'lukas-reineke/indent-blankline.nvim',
+	{
+		'lukas-reineke/indent-blankline.nvim',
+		main = 'ibl'
+	},
 
 	-- Cool cmdline
 	{
