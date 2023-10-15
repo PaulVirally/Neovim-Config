@@ -63,7 +63,7 @@ require('lazy').setup({
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			{'nvim-telescope/telescope-fzy-native.nvim', build = 'make', cond = vim.fn.executable('make') == 1},
-			{'nvim-telescope/telescope-frecency.nvim', dependencies = {'kkharji/sqlite.lua', 'nvim-tree/nvim-web-devicons'}},
+			{'nvim-telescope/telescope-frecency.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
 		},
 		lazy = true
 	},
