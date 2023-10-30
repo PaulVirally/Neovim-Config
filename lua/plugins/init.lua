@@ -178,7 +178,13 @@ require('lazy').setup({
 	'dnlhc/glance.nvim',
 
 	-- Treat the file system as a text buffer
-	'stevearc/oil.nvim'
+	'stevearc/oil.nvim',
+
+	-- Use Ag (silver-searcher) for Telescope
+	{
+		"kelly-lin/telescope-ag",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	}
 
 	-- Neorg (doesn't compile...)
 	-- {

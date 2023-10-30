@@ -13,3 +13,4 @@ telescope.setup {
 	},
 }
 pcall(telescope.load_extension, 'fzf') -- Enable telescope fzf native, if installed
+pcall(telescope.load_extension, 'ag') -- Enable silver-searcher (ag), if installed
