@@ -41,7 +41,7 @@ local config = {
 		mode = {'i', 'c'},
 
 		-- Paste with command + v
-		['<D-v>'] = {act = '<C-o>p', desc = 'Paste'},
+		['<D-v>'] = {act = '<C-o>gP', desc = 'Paste'},
 	},
 
 	-- All normal mode remaps
