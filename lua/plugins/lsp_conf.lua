@@ -1,7 +1,7 @@
 -- Neovim lua config
 require('neodev').setup()
 
-local palette = require('catppuccin.palettes').get_palette('macchiato')
+local palette = require('catppuccin.palettes').get_palette('mocha')
 local border_group = vim.api.nvim_create_augroup('LspBorder', {clear = true})
 vim.api.nvim_create_autocmd('ColorScheme', {
 	command = 'highlight NormalFloat guifg=' .. palette.text .. ' guibg=' .. palette.base,

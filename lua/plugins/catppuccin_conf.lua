@@ -1,6 +1,7 @@
 -- Catppuccin config
 
 require('catppuccin').setup({
+	flavour = 'mocha',
 	integrations = {
 		fidget = true,
 		gitsigns = true,

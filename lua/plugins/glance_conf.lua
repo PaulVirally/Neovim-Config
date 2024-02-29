@@ -6,7 +6,7 @@ end
 glance.setup()
 
 -- Color definitions
-local palette = require('catppuccin.palettes').get_palette('macchiato')
+local palette = require('catppuccin.palettes').get_palette('mocha')
 vim.api.nvim_set_hl(0, 'GlanceListNormal', {fg = palette.text, bg = palette.mantle})
 vim.api.nvim_set_hl(0, 'GlancePreviewEndOfBuffer', {link = 'EndOfBuffer'})
 vim.api.nvim_set_hl(0, 'GlancePreviewMatch', {link = 'Search'})

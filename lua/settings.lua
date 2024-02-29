@@ -1,5 +1,5 @@
 -- Colorscheme
-vim.cmd('colorscheme catppuccin-macchiato')
+vim.cmd('colorscheme catppuccin-mocha')
 
 -- Sync neovim clipboard and system clipboard
 vim.opt.clipboard:prepend({'unnamedplus'})
