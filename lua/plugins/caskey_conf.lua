@@ -111,8 +111,8 @@ local config = {
 		['gR'] = {act = ck.cmd('Gitsigns reset_hunk'), desc = 'Restore git hunk'},
 
 		-- Buffer navigation
-		['<D-[>'] = {act = ck.cmd('BufferPrevious'), desc = 'Go to previous buffer'},
-		['<D-]>'] = {act = ck.cmd('BufferNext'), desc = 'Go to next buffer'},
+		['<D-{>'] = {act = ck.cmd('BufferPrevious'), desc = 'Go to previous buffer'},
+		['<D-}>'] = {act = ck.cmd('BufferNext'), desc = 'Go to next buffer'},
 		['<D-w>'] = {act = ck.cmd('BufferClose'), desc = 'Close buffer'},
 
 		-- File explorer
