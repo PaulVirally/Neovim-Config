@@ -42,6 +42,13 @@ require('lazy').setup({
 	-- Better error messages
 	'folke/trouble.nvim',
 
+	-- Snippets
+	{
+		'L3MON4D3/LuaSnip',
+		version = "v2.*",
+		build = "make install_jsregexp",
+	},
+
 	-- Autocompletion
 	{
 		'hrsh7th/nvim-cmp',
@@ -178,7 +185,22 @@ require('lazy').setup({
 	'dnlhc/glance.nvim',
 
 	-- Treat the file system as a text buffer
-	'stevearc/oil.nvim'
+	'stevearc/oil.nvim',
+
+	-- SSHFS
+	'nosduco/remote-sshfs.nvim',
+
+	-- Remote neovim (should replace SSHFS?)
+	{
+		"amitds1997/remote-nvim.nvim",
+		version = "*", -- Pin to GitHub releases
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- For standard functions
+			"MunifTanjim/nui.nvim", -- To build the plugin UI
+			"nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+		},
+		config = true,
+	}
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -240,3 +262,5 @@ require('plugins/glance_conf')
 require('plugins/caskey_conf')
 require('plugins/mason_conf')
 require('oil').setup()
+require('remote-sshfs').setup({})
+require("remote-nvim").setup()
