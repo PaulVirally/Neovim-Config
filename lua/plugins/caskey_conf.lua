@@ -140,6 +140,12 @@ local config = {
 		['<Leader>pr'] = {act = ck.cmd('Glance references'), desc = 'Peek reference'},
 		['<Leader>pt'] = {act = ck.cmd('Glance type-definitions'), desc = 'Peek type definition'},
 		['<Leader>pi'] = {act = ck.cmd('Glance implementations'), desc = 'Peek implementation'},
+
+		-- Search word under cursor with ag (silver searcher)
+		['<Leader>*'] = {act = function()
+			local word = vim.fn.expand('<cword>')
+			vim.cmd('Ag ' .. word)
+		end, desc = 'Search word under cursor with ag (silver searcher)'},
 	},
 
 	-- All visual mode remaps

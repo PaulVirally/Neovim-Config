@@ -200,6 +200,12 @@ require('lazy').setup({
 			"nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
 		},
 		config = true,
+	},
+
+	-- Use Ag (silver-searcher) for Telescope
+	{
+		"kelly-lin/telescope-ag",
+		dependencies = { "nvim-telescope/telescope.nvim" },
 	}
 
 	-- Neorg (doesn't compile...)
