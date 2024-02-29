@@ -1,7 +1,12 @@
 -- Fidget config
 
 require('fidget').setup({
-	text = {
-		spinner = 'bouncing_ball',
+	progress = {
+		display = {
+			progress_icon = {
+				pattern = 'bouncing_ball',
+				period = 1,
+			},
+		},
 	},
 })
