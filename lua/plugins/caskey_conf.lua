@@ -36,12 +36,20 @@ local config = {
 		['N'] = {act = 'Nzz', desc = 'Go to previous'},
 	},
 
-	-- All insert mode + cmdline mode remaps
+	-- All insert mode
 	{
-		mode = {'i', 'c'},
+		mode = {'i'},
 
 		-- Paste with command + v
 		['<D-v>'] = {act = '<C-o>gP', desc = 'Paste'},
+	},
+
+	-- All cmdline mode remaps
+	{
+		mode = {'c'},
+
+		-- Paste with command + v
+		['<D-v>'] = {act = '<C-r>+', desc = 'Paste'},
 	},
 
 	-- All normal mode remaps
