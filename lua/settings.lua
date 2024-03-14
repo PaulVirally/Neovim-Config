@@ -50,3 +50,6 @@ vim.wo.fillchars='eob: '
 
 -- Don't wrap lines
 vim.opt.wrap = false
+
+-- Set textwidth to 80. This is useful for `gw` to format docstrings or comments
+vim.opt.textwidth = 80
