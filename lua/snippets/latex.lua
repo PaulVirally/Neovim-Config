@@ -954,7 +954,7 @@ return {
 			<>
 		\end{minipage}%
 		]], {i(1, '0.45'), i(0)}, {delimiters = '<>'}),
-		{condition = not_math, show_condition = not_math}
+		{condition = not_math * line_begin, show_condition = not_math * line_begin}
 	),
 
 	autosnippet(
@@ -1459,6 +1459,12 @@ return {
 	autosnippet(
 		{trig = 'pi', name = 'pi', wordTrig = false, hidden = true},
 		t([[\pi]]),
+		{condition = is_math_env, show_condition = is_math_env}
+	),
+
+	autosnippet(
+		{trig = 'mat', name = 'matrix', wordTrig = false, hidden = true},
+		fmt([[\bm{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 }
