@@ -127,7 +127,10 @@ local config = {
 		['<Leader>t'] = {act = ck.cmd('NvimTreeToggle'), desc = 'Toggle file explorer'},
 
 		-- Restore last session
-		['<Leader>qq'] = {act = ck.cmd('SessionManager load_session'), desc = 'Selection session to load'},
+		['<Leader>qq'] = {act = function()
+			vim.cmd('SessionManager save_current_session')
+			vim.cmd('SessionManager load_session')
+		end, desc = 'Select session to load'},
 		['<Leader>ql'] = {act = ck.cmd('SessionManager load_last_session'), desc = 'Load last session'},
 		['<Leader>qc'] = {act = ck.cmd('SessionManager load_current_dir_session'), desc = 'Load session for current directory'},
 
