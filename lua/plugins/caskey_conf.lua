@@ -157,6 +157,9 @@ local config = {
 			local word = vim.fn.expand('<cword>')
 			vim.cmd('Ag ' .. word)
 		end, desc = 'Search word under cursor with ag (silver searcher)'},
+
+		-- Open/close folds
+		['<Leader>f'] = {act = 'za', desc = 'Toggle fold'},
 	},
 
 	-- All visual mode remaps

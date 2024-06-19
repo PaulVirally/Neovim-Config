@@ -53,3 +53,11 @@ vim.opt.wrap = false
 
 -- Set textwidth to 80. This is useful for `gw` to format docstrings or comments
 vim.opt.textwidth = 70
+
+-- Enable folds and make them work with nvim-ufo
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99 -- nvim-ufo needs a large foldlevel
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+

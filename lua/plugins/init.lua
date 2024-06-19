@@ -78,7 +78,7 @@ require('lazy').setup({
 	-- Git
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
-	{'lewis6991/gitsigns.nvim', lazy = true},
+	'lewis6991/gitsigns.nvim',
 
 	-- More text objects
 	{
@@ -206,6 +206,18 @@ require('lazy').setup({
 	{
 		"kelly-lin/telescope-ag",
 		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
+
+	-- Folds
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = { "kevinhwang91/promise-async" },
+	},
+
+	-- Status column (the thing on the left with the line numbers)
+	{
+		'luukvbaal/statuscol.nvim',
+		dependencies = { 'lewis6991/gitsigns.nvim' }
 	}
 
 	-- Neorg (doesn't compile...)
@@ -270,3 +282,4 @@ require('plugins/mason_conf')
 require('oil').setup()
 require('remote-sshfs').setup({})
 require("remote-nvim").setup()
+require('plugins/statuscol_conf')
