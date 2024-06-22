@@ -112,7 +112,7 @@ mason_lspconfig.setup_handlers({
 })
 
 -- LSP status info
-require('fidget').setup()
+require('fidget').setup({})
 
 -- Folding
 require('ufo').setup()
