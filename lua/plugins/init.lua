@@ -1,4 +1,4 @@
--- Bootstrap lazy.vnim
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({'git', 'clone', '--filter=blob:none', '--single-branch', 'https://github.com/folke/lazy.nvim.git', lazypath})
@@ -218,6 +218,12 @@ require('lazy').setup({
 	{
 		'luukvbaal/statuscol.nvim',
 		dependencies = { 'lewis6991/gitsigns.nvim' }
+	},
+
+	-- Better macros
+	{
+		'chrisgrieser/nvim-recorder',
+		dependencies = { 'rcarriga/nvim-notify' }
 	}
 
 	-- Neorg (doesn't compile...)
@@ -283,3 +289,4 @@ require('oil').setup()
 require('remote-sshfs').setup({})
 require("remote-nvim").setup()
 require('plugins/statuscol_conf')
+require('plugins/recorder_conf')
