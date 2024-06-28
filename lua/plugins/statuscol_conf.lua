@@ -11,6 +11,7 @@ vim.diagnostic.config({
 
 local builtin = require("statuscol.builtin")
 require("statuscol").setup({
+	ft_ignore = { 'startup', 'NvimTree' },
 	segments = {
 		{ -- Git
 			sign = { namespace = { "gitsign" }, maxwidth = 1, auto = true },
