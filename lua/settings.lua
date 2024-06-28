@@ -52,7 +52,7 @@ vim.wo.fillchars='eob: '
 vim.opt.wrap = false
 
 -- Set textwidth to 80. This is useful for `gw` to format docstrings or comments
-vim.opt.textwidth = 70
+vim.opt.textwidth = 80
 
 -- Enable folds and make them work with nvim-ufo
 vim.opt.foldcolumn = '1'
