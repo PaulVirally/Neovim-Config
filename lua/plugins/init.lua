@@ -79,6 +79,10 @@ require('lazy').setup({
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
 	'lewis6991/gitsigns.nvim',
+	{
+		'junegunn/gv.vim',
+		dependencies = { 'tpope/vim-fugitive' }
+	},
 
 	-- More text objects
 	{
@@ -224,7 +228,10 @@ require('lazy').setup({
 	{
 		'chrisgrieser/nvim-recorder',
 		dependencies = { 'rcarriga/nvim-notify' }
-	}
+	},
+
+	-- Scroll bar
+	'petertriho/nvim-scrollbar',
 
 	-- Neorg (doesn't compile...)
 	-- {
@@ -290,3 +297,4 @@ require('remote-sshfs').setup({})
 require("remote-nvim").setup()
 require('plugins/statuscol_conf')
 require('plugins/recorder_conf')
+require('plugins/scrollbar_conf')
