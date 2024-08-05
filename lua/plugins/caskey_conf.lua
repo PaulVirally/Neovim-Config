@@ -125,6 +125,7 @@ local config = {
 
 		-- File explorer
 		['<Leader>t'] = {act = ck.cmd('NvimTreeToggle'), desc = 'Toggle file explorer'},
+		['<Leader>zi'] = {act = require('telescope').extensions.zoxide.list, desc = 'Launch Zoxide'},
 
 		-- Restore last session
 		['<Leader>qq'] = {act = function()

@@ -181,7 +181,6 @@ require('lazy').setup({
 	-- Screensaver
 	-- 'tamton-aquib/zone.nvim',
 
-
 	-- Surround
 	'kylechui/nvim-surround',
 
@@ -190,6 +189,9 @@ require('lazy').setup({
 
 	-- Treat the file system as a text buffer
 	'stevearc/oil.nvim',
+
+	-- Use zoxide with oil
+	'jvgrootveld/telescope-zoxide',
 
 	-- SSHFS
 	'nosduco/remote-sshfs.nvim',
@@ -293,8 +295,10 @@ require('plugins/glance_conf')
 require('plugins/caskey_conf')
 require('plugins/mason_conf')
 require('oil').setup()
+require('plugins/zoxide_conf')
 require('remote-sshfs').setup({})
 require("remote-nvim").setup()
 require('plugins/statuscol_conf')
 require('plugins/recorder_conf')
 -- require('plugins/scrollbar_conf')
+require('plugins/telescope_conf')
