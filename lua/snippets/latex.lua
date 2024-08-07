@@ -53,11 +53,14 @@ return {
 		\usepackage{amsmath}
 		\usepackage{amssymb}
 		\usepackage{amsthm}
+		\usepackage{bm}
 		\usepackage{bbm}
+		\usepackage[style=numeric]{biblatex}
+		\usepackage{caption}
 		\usepackage{cancel}
 		\usepackage{empheq}
 		\usepackage{fancyhdr}
-		\usepackage{geometry}[margins=1.5in]
+		\usepackage{geometry}[margins=1in]
 		\usepackage{hyperref}
 		\usepackage[nameinlink]{cleveref}
 		\usepackage{mathtools}
@@ -70,11 +73,15 @@ return {
 		\usepackage{wasysym}
 
 		\usetikzlibrary{calc,patterns,angles,quotes}
+		\usetikzlibrary{decorations.markings}
+
+		% PGFPlots
+		\pgfplotsset{compat=newest} 
 
 		% Variables
 		\newcommand{\theAuthor}{Paul Virally}
-		\newcommand{\theTitle}{Example Title}
-		\newcommand{\theSubtitle}{Example Subtitle}
+		\newcommand{\theTitle}{Polynomials}
+		\newcommand{\theSubtitle}{}
 		\newcommand{\theDate}{\today}
 
 		% Headers and footers
@@ -102,21 +109,26 @@ return {
 		\newtheorem{theorem}{Theorem}
 		\numberwithin{theorem}{section}
 		\numberwithin{equation}{section}
+		\numberwithin{figure}{section}
+
+		\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+		% \addbibresource{bib.bib}
 
 		% Document
 		\begin{document}
 
 		% Cover page
-		\begin{titlepage}
-			\begin{center}
-				\textsc{\Huge{\theTitle}}\\[0.5cm]
-				\textsc{\Large{\theSubtitle}}\\[4cm]
-				\theAuthor{}\\[0.2cm]
-				\theDate{}
-			\end{center}
-		\newpage
-		\end{titlepage}
-		\newpage
+		% \begin{titlepage}
+		% 	\begin{center}
+		% 		\textsc{\Huge{\theTitle}}\\[0.5cm]
+		% 		\textsc{\Large{\theSubtitle}}\\[4cm]
+		% 		\theAuthor{}\\[0.2cm]
+		% 		\theDate{}
+		% 	\end{center}
+		% \newpage
+		% \end{titlepage}
+		% \newpage
 
 		\tableofcontents
 		\newpage
@@ -134,7 +146,7 @@ return {
 	snippet(
 		{trig = 'assignment', name = 'Assignment template', desc = 'Creates an empty assignment template document', hidden = true},
 		fmt([[
-		\documentclass{assignment}
+		\documentclass{paulassignment}
 
 		\synctex=1
 
@@ -148,10 +160,10 @@ return {
 		\usepackage{hyperref}
 		\usepackage[nameinlink]{cleveref}
 		\usepackage{empheq}
-		\usepackage{geometry}[margins=1.5in]
+		\usepackage{geometry}[margins=1in]
 		\usepackage{mathtools}
 		\usepackage{pgfplots}
-		\usepackage[italicdiff, arrowdel]{physics}
+		\usepackage[italicdiff]{physics}
 		\usepackage{siunitx}
 		\usepackage{tensor}
 		\usepackage{tikz}
@@ -163,11 +175,14 @@ return {
 		\pgfplotsset{compat=newest} 
 
 		% Assignment details
+		% \makeatletter
+		% \renewcommand{\@logopath}{./figures/logo.eps}
+		% \makeatother
 		\courselabel{}
 		\exercisesheet{<>}{Assignment <>}
 		\university{}
-		\school{University of Waterloo}
-		\student{Paul Virally --- ID:\@ 20769927}
+		\school{Polytechnique Montr\'eal}
+		\student{Paul Virally --- ID:\@ 1939691}
 		\semester{<>}
 		\date{\today}
 
@@ -201,7 +216,7 @@ return {
 		\end{problemlist}
 		\end{document}
 		]],
-			{i(1, 'PHYS 394'), i(2, '1'), i(3, 'Winter 2023'), i(4, 'Problem prompt'), i(0)},
+			{i(1, 'PHS 123'), i(2, '1'), i(3, 'Winter 2025'), i(4, 'Problem prompt'), i(0)},
 			{delimiters = '<>'}
 		),
 		{condition = line_begin, show_condition = line_begin}
@@ -519,7 +534,7 @@ return {
 			local order = ''
 			if snip.captures[1] ~= '' then order = '[' .. snip.captures[1] .. ']' end
 			-- vim.pretty_print(snip.captures)
-			vim.pretty_print(order)
+			-- vim.pretty_print(order)
 			return sn(1, fmt('\\dv' .. order .. '{<>}{<>}<>', {i(1), i(2, snip.captures[2]), i(0)}, {delimiters = '<>'}))
 		end, nil),
 		{condition = is_math_env, show_condition = is_math_env}
