@@ -15,8 +15,8 @@ require('lazy').setup({
 
 	-- Keymaps
 	{
-		'Nexmean/caskey.nvim',
-		dependencies = {'folke/which-key.nvim'}
+		'folke/which-key.nvim',
+		dependencies = { 'echasnovski/mini.nvim', version = false },
 	},
 
 	-- LSP
@@ -292,7 +292,7 @@ require('plugins/smartcolumn_conf')
 -- require('plugins/zone_conf')
 require('nvim-surround').setup()
 require('plugins/glance_conf')
-require('plugins/caskey_conf')
+require('plugins/whichkey_conf')
 require('plugins/mason_conf')
 require('oil').setup()
 require('plugins/zoxide_conf')
