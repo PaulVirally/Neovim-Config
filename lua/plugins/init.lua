@@ -235,6 +235,13 @@ require('lazy').setup({
 	-- Scroll bar
 	'petertriho/nvim-scrollbar',
 
+	-- Fancier markdown
+	{
+		'MeanderingProgrammer/render-markdown.nvim',
+		opts = {},
+		dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+	}
+
 	-- Neorg (doesn't compile...)
 	-- {
 	-- 	'nvim-neorg/neorg',
@@ -302,4 +309,5 @@ require('plugins/statuscol_conf')
 require('plugins/recorder_conf')
 -- require('plugins/scrollbar_conf')
 require('nvim_comment').setup()
+require('render-markdown').enable()
 require('plugins/telescope_conf')
