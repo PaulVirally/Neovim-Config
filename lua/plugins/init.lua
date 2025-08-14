@@ -19,25 +19,37 @@ require('lazy').setup({
 		dependencies = { 'echasnovski/mini.nvim', version = false },
 	},
 
-	-- LSP
-	{
-		'neovim/nvim-lspconfig',
-		dependencies = {
-			-- Automatically install LSPs with mason
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
-
-			-- Eye candy status update
-			'j-hui/fidget.nvim',
-
-			-- Additional lua configuration, makes nvim stuff amazing
-			'folke/neodev.nvim',
-
-			-- Dim unused code
-			'narutoxy/dim.lua',
-		},
-		lazy = true
-	},
+	-- -- LSP
+	-- {
+	-- 	'neovim/nvim-lspconfig',
+	-- 	dependencies = {
+	-- 		-- Automatically install LSPs with mason
+	-- 		'williamboman/mason.nvim',
+	-- 		'williamboman/mason-lspconfig.nvim',
+	--
+	-- 		-- Eye candy status update
+	-- 		'j-hui/fidget.nvim',
+	--
+	-- 		-- Additional lua configuration, makes nvim stuff amazing
+	-- 		'folke/neodev.nvim',
+	--
+	-- 		-- Dim unused code
+	-- 		'narutoxy/dim.lua',
+	-- 	},
+	-- 	lazy = true
+	-- },
+    -- LSP
+    {
+        'mason-org/mason-lspconfig.nvim',
+        opts = {},
+        dependencies = {
+            {'mason-org/mason.nvim', opts = {} }, -- Automatically install LSPs with mason
+            'neovim/nvim-lspconfig',
+            'j-hui/fidget.nvim', -- Eye candy status update
+            'folke/neodev.nvim', -- Additional lua configuration, makes nvim stuff amazing
+            'narutoxy/dim.lua', -- Dim unused code
+        },
+    },
 
 	-- Better error messages
 	'folke/trouble.nvim',
@@ -70,7 +82,7 @@ require('lazy').setup({
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			{'nvim-telescope/telescope-fzy-native.nvim', build = 'make', cond = vim.fn.executable('make') == 1},
-			{'nvim-telescope/telescope-frecency.nvim', dependencies = {'nvim-tree/nvim-web-devicons'}},
+			{'nvim-telescope/telescope-frecency.nvim', version='*', dependencies = {'nvim-tree/nvim-web-devicons'}},
 		},
 		lazy = true
 	},

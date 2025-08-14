@@ -87,7 +87,8 @@ wk.add({
 			previewer = false,
 		})
 	end, desc = 'Fuzzy search in current buffer'},
-	{'<Leader>sf', require('telescope').extensions.frecency.frecency, desc = 'Search files'},
+	-- {'<Leader>sf', require('telescope').extensions.frecency.frecency, desc = 'Search files'},
+	{'<Leader>sf', '<cmd>Telescope frecency<CR>', desc = 'Search files'},
 	{'<Leader>sh', require('telescope.builtin').help_tags, desc = 'Search help'},
 	{'<Leader>sw', require('telescope.builtin').grep_string, desc = 'Search current word'},
 	{'<Leader>sg', require('telescope.builtin').live_grep, desc = 'Search by grep'},
@@ -150,6 +151,24 @@ wk.add({
 
 	-- Open/close folds
 	{'<Leader>f', 'za', desc = 'Toggle fold'},
+
+    -- LSP
+    {'<Leader>rn', vim.lsp.buf.rename, desc = '[R]e[n]ame'},
+    {'<Leader>ca', vim.lsp.buf.code_action, desc = '[C]ode [A]ction'},
+    {'gd', vim.lsp.buf.definition, desc = '[G]oto [D]efinition'},
+    {'gr', require('telescope.builtin').lsp_references, desc = '[G]oto [R]eferences'},
+    {'gI', vim.lsp.buf.implementation, desc = '[G]oto [I]mplementation'},
+    {'<Leader>D', vim.lsp.buf.type_definition, desc = 'Type [D]efinition'},
+    {'<Leader>ds', require('telescope.builtin').lsp_document_symbols, desc = '[D]ocument [S]ymbols'},
+    {'<Leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, desc = '[W]orkspace [S]ymbols'},
+    {'K', vim.lsp.buf.hover, desc = 'Hover Documentation'},
+    {'<C-k>', vim.lsp.buf.signature_help, desc = 'Signature Documentation'},
+    {'gD', vim.lsp.buf.declaration, desc = '[G]oto [D]eclaration'},
+    {'<Leader>wa', vim.lsp.buf.add_workspace_folder, desc = '[W]orkspace [A]dd Folder'},
+    {'<Leader>wr', vim.lsp.buf.remove_workspace_folder, desc = '[W]orkspace [R]emove Folder'},
+    {'<Leader>wl', function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, desc = '[W]orkspace [L]ist Folders'},
 })
 
 -- All visual mode remaps
