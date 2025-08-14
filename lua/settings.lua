@@ -14,9 +14,11 @@ vim.opt.cursorline = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Tabs >> spaces
+-- Spaces instead of tabs
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- Enable mouse everywhere
 vim.opt.mouse = 'a'
