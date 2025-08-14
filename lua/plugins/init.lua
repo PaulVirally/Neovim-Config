@@ -41,9 +41,8 @@ require('lazy').setup({
     -- LSP
     {
         'mason-org/mason-lspconfig.nvim',
-        opts = {},
         dependencies = {
-            {'mason-org/mason.nvim', opts = {} }, -- Automatically install LSPs with mason
+            'mason-org/mason.nvim', -- Automatically install LSPs with mason
             'neovim/nvim-lspconfig',
             'j-hui/fidget.nvim', -- Eye candy status update
             'folke/neodev.nvim', -- Additional lua configuration, makes nvim stuff amazing

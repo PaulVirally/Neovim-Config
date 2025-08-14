@@ -52,59 +52,51 @@ require('mason').setup({
 
 local mason_lsp = require('mason-lspconfig')
 local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
+
+local servers = {
+        bashls = {},
+        pyright = {},
+        tsserver = {},
+        julials = {
+                on_new_config = function(new_config, _)
+                        local julia = vim.fn.expand('~/.julia/environments/nvim-lspconfig/bin/julia')
+                        if util.path.exists(julia) then
+                                new_config.cmd[1] = julia
+                        end
+                end,
+                cmd = {
+                        'julia',
+                        '--startup-file=no',
+                        '--history-file=no',
+                        '-e', [[
+                                using LanguageServer; using Pkg; using SymbolServer;
+                                env_path = dirname(Pkg.Types.Context().env.project_file);
+                                server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
+                                server.runlinter = true;
+                                run(server);
+                        ]],
+                },
+        },
+        lua_ls = {
+                settings = {
+                        Lua = {
+                                workspace = { checkThirdParty = false },
+                                telemetry = { enable = false },
+                        },
+                },
+        },
+}
 
 mason_lsp.setup({
-        ensure_installed = {
-                'bashls',
-                'pyright',
-                'tsserver',
-                'julials',
-                'lua_ls',
-        },
+        ensure_installed = vim.tbl_keys(servers),
+        automatic_enable = false,
 })
 
-mason_lsp.setup_handlers({
-        function(server_name)
-                lspconfig[server_name].setup({
-                        capabilities = capabilities,
-                })
-        end,
-        ['julials'] = function()
-                local util = require('lspconfig.util')
-                lspconfig.julials.setup({
-                        capabilities = capabilities,
-                        on_new_config = function(new_config, _)
-                                local julia = vim.fn.expand('~/.julia/environments/nvim-lspconfig/bin/julia')
-                                if util.path.exists(julia) then
-                                        new_config.cmd[1] = julia
-                                end
-                        end,
-                        cmd = {
-                                'julia',
-                                '--startup-file=no',
-                                '--history-file=no',
-                                '-e', [[
-                                        using LanguageServer; using Pkg; using SymbolServer;
-                                        env_path = dirname(Pkg.Types.Context().env.project_file);
-                                        server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
-                                        server.runlinter = true;
-                                        run(server);
-                                ]],
-                        },
-                })
-        end,
-        ['lua_ls'] = function()
-                lspconfig.lua_ls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                                Lua = {
-                                        workspace = { checkThirdParty = false },
-                                        telemetry = { enable = false },
-                                },
-                        },
-                })
-        end,
-})
+for server, config in pairs(servers) do
+        config.capabilities = capabilities
+        lspconfig[server].setup(config)
+end
 
 -- LSP status info
 require('fidget').setup({})
