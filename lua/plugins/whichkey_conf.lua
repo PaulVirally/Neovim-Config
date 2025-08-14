@@ -95,14 +95,14 @@ wk.add({
 	{'<Leader>sd', require('telescope.builtin').diagnostics, desc = 'Search diagnostics'},
 
 	-- Diagnostics
-	{'[d', vim.diagnostic.goto_prev, desc = 'Go to previous diagnostic'},
-	{']d', vim.diagnostic.goto_next, desc = 'Go to next diagnostic'},
-	{'<Leader>ee', '<cmd>TroubleToggle<CR>', desc = 'Show errors and references'},
-	{'<Leader>ew', '<cmd>TroubleToggle<CR>', desc = 'Show workspace errors'},
-	{'<Leader>ed', '<cmd>TroubleToggle<CR>', desc = 'Show document errors'},
-	{'<Leader>ef', '<cmd>TroubleToggle quickfix<CR>', desc = 'Show error quickfixes'},
-	{'<Leader>el', '<cmd>TroubleToggle loclist<CR>', desc = 'Show loclist'},
-	{'gr', '<cmd>TroubleToggle lsp_references<CR>', desc = 'Go to reference'},
+        {'[d', vim.diagnostic.goto_prev, desc = 'Go to previous diagnostic'},
+        {']d', vim.diagnostic.goto_next, desc = 'Go to next diagnostic'},
+        {'<Leader>ee', '<cmd>Trouble lsp toggle focus=false win.position=right<CR>', desc = 'LSP definitions / references'},
+        {'<Leader>ew', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Show workspace diagnostics'},
+        {'<Leader>ed', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Show document diagnostics'},
+        {'<Leader>ef', '<cmd>Trouble qflist toggle<CR>', desc = 'Show error quickfixes'},
+        {'<Leader>el', '<cmd>Trouble loclist toggle<CR>', desc = 'Show loclist'},
+        {'gr', '<cmd>Trouble lsp_references toggle<CR>', desc = 'Go to reference'},
 
 	-- Git signs
 	{'gp', '<cmd>Gitsigns preview_hunk_inline<CR>', desc = 'Preview git diff'},
@@ -156,7 +156,6 @@ wk.add({
     {'<Leader>rn', vim.lsp.buf.rename, desc = '[R]e[n]ame'},
     {'<Leader>ca', vim.lsp.buf.code_action, desc = '[C]ode [A]ction'},
     {'gd', vim.lsp.buf.definition, desc = '[G]oto [D]efinition'},
-    {'gr', require('telescope.builtin').lsp_references, desc = '[G]oto [R]eferences'},
     {'gI', vim.lsp.buf.implementation, desc = '[G]oto [I]mplementation'},
     {'<Leader>D', vim.lsp.buf.type_definition, desc = 'Type [D]efinition'},
     {'<Leader>ds', require('telescope.builtin').lsp_document_symbols, desc = '[D]ocument [S]ymbols'},
