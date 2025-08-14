@@ -41,9 +41,8 @@ require('lazy').setup({
     -- LSP
     {
         'mason-org/mason-lspconfig.nvim',
-        opts = {},
         dependencies = {
-            {'mason-org/mason.nvim', opts = {} }, -- Automatically install LSPs with mason
+            'mason-org/mason.nvim', -- Automatically install LSPs with mason
             'neovim/nvim-lspconfig',
             'j-hui/fidget.nvim', -- Eye candy status update
             'folke/neodev.nvim', -- Additional lua configuration, makes nvim stuff amazing
@@ -312,7 +311,6 @@ require('plugins/smartcolumn_conf')
 require('nvim-surround').setup()
 require('plugins/glance_conf')
 require('plugins/whichkey_conf')
-require('plugins/mason_conf')
 require('oil').setup()
 require('plugins/zoxide_conf')
 require('remote-sshfs').setup({})
