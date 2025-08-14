@@ -98,8 +98,3 @@ for server, config in pairs(servers) do
         lspconfig[server].setup(config)
 end
 
--- LSP status info
-require('fidget').setup({})
-
--- Folding
-require('ufo').setup()
