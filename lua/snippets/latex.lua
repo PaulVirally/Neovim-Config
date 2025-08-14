@@ -162,6 +162,7 @@ return {
 		\usepackage{empheq}
 		\usepackage{geometry}[margins=1in]
 		\usepackage{mathtools}
+		\usepackage{microtype}
 		\usepackage{pgfplots}
 		\usepackage[italicdiff]{physics}
 		\usepackage{siunitx}
@@ -910,6 +911,12 @@ return {
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
+    autosnippet(
+        {trig = 'mtt', name = 'math tt', wordTrig = false, hidden = true},
+        fmt([[\mathtt{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
+
 	autosnippet(
 		{trig = 'tt', name = 'text', wordTrig = false, hidden = true},
 		fmt([[\text{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
@@ -1482,4 +1489,34 @@ return {
 		fmt([[\bm{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
+
+    autosnippet(
+        {trig = 'mrm', name = 'math rm', wordTrig = false, hidden = true},
+        fmt([[\mathrm{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
+
+    autosnippet(
+        {trig = 'subs', name = 'subset', wordTrig = false, hidden = true},
+        t([[\subset ]]),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
+
+    autosnippet(
+        {trig = 'sups', name = 'superset', wordTrig = false, hidden = true},
+        t([[\supset ]]),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
+
+    autosnippet(
+        {trig = 'vac', name = 'vacuum', wordTrig = false, hidden = true},
+        t([[_{\circ}]]),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
+
+    autosnippet(
+        {trig = 'frak', name = 'mathfrak', wordTrig = false, hidden = true},
+        fmt([[\mathfrak{<>}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+        {condition = is_math_env, show_condition = is_math_env}
+    ),
 }
