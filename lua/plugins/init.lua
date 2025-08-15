@@ -36,6 +36,16 @@ require('lazy').setup({
     end,
   },
 
+  -- Snacks
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require('plugins.snacks_conf')
+    end,
+  },
+
   -- LSP
   {
     'mason-org/mason-lspconfig.nvim',
