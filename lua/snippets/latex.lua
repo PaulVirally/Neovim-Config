@@ -1384,13 +1384,13 @@ return {
 
 	autosnippet(
 		{trig = 'Re', name = 'real', wordTrig = false, hidden = true},
-		fmt([[\text{Re}\left\{<>\right\}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\Re\qty(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 
 	autosnippet(
 		{trig = 'Im', name = 'imaginary', wordTrig = false, hidden = true},
-		fmt([[\text{Im}\left\{<>\right\}<>]], {i(1), i(0)}, {delimiters = '<>'}),
+		fmt([[\Im\qty(<>)<>]], {i(1), i(0)}, {delimiters = '<>'}),
 		{condition = is_math_env, show_condition = is_math_env}
 	),
 

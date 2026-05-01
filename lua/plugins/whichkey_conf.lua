@@ -114,7 +114,7 @@ wk.add({
 	{'<D-w>', '<cmd>BufferClose<CR>', desc = 'Close buffer'},
 
 	-- File explorer
-	{'<Leader>t', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle file explorer'},
+	{'<Leader>t', function() Snacks.explorer() end, desc = 'Toggle file explorer'},
 	{'<Leader>zi', require('telescope').extensions.zoxide.list, desc = 'Launch Zoxide'},
 
 	-- Restore last session

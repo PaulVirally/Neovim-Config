@@ -56,7 +56,6 @@ local util = require('lspconfig.util')
 
 local servers = {
         bashls = {},
-        pyright = {},
         ts_ls = {},
         julials = {
                 on_new_config = function(new_config, _)
